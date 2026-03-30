@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2dd",
+              "on-secondary-fixed-variant": "#3c4c25",
+              "on-primary-fixed-variant": "#812914",
+              "surface-variant": "#e6e2dd",
+              "tertiary-fixed": "#ffdea6",
+              "on-secondary-fixed": "#121f01",
+              "secondary-fixed": "#d6eab5",
+              "primary": "#a03f28",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "tertiary": "#7b5800",
+              "outline": "#8a726c",
+              "secondary": "#53643a",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed-dim": "#bacd9b",
+              "primary-fixed-dim": "#ffb4a3",
+              "primary-fixed": "#ffdad2",
+              "on-surface-variant": "#56423d",
+              "background": "#fdf9f4",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0ba",
+              "on-error": "#ffffff",
+              "tertiary-container": "#9a6f07",
+              "on-secondary-container": "#596a40",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d6eab5",
+              "inverse-surface": "#31302d",
+              "on-tertiary-container": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-primary-container": "#120100",
+              "tertiary-fixed-dim": "#f3be58",
+              "surface-container": "#f1ede8",
+              "surface-bright": "#fdf9f4",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "surface-tint": "#a03f29",
+              "surface": "#fdf9f4",
+              "surface-container-high": "#ebe8e3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#3d0700",
+              "primary-container": "#c0573e",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0eb",
+              "inverse-primary": "#ffb4a3",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#ddd9d5"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px -15px rgba(28, 28, 25, 0.04);
+        }
+        body {
+            background-color: #fdf9f4;
+            color: #1c1c19;
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f4]/80 backdrop-blur-md transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-on-surface hover:opacity-80 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
+</button>
+<!-- Brand Logo -->
+<h1 class="text-2xl font-headline tracking-tighter text-[#1c1c19] text-center absolute left-1/2 -translate-x-1/2">Evorae</h1>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-4">
+<button class="hover:opacity-80 transition-all text-[#a03f28]">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="hover:opacity-80 transition-all text-[#a03f28]">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section: Summer Breath -->
+<section class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Summer Fashion" class="w-full h-full object-cover" data-alt="Close-up of lightweight linen fabric blowing in a gentle breeze against a soft morning sun in a Mediterranean courtyard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnbwYiRoueHeIC7oWE1h9i5qEC2SGuXNIomVsCup8AkTSAOGOdbjnPuH_t0cXXxsr8u_eNPsGnm4OW6tgLc3QlyO_8Cayo5OC26PiXN2itpsnWWz6G-uzv4zlMxr329rPXa_uwdQLAE7YGm39qRDUKWQLg1wRT3C9Y_q6ONAPOS-7Trp7JvmoT5ZHk7qIhH1crmFkMGDXuQ37U4MPn1sT4uVHC_u71RixVhH5rDf1LoXJ7sOJdfuUbZdwNAbykC6Z5q0tiuVVtsI0k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-6 right-6 text-center">
+<span class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-3 block">New Collection</span>
+<h2 class="font-headline text-5xl text-on-background leading-tight mb-6">Summer Breath</h2>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label text-sm tracking-widest uppercase hover:scale-95 duration-200 shadow-lg">
+                    Explore Now
+                </button>
+</div>
+</section>
+<!-- Our Story Snippet -->
+<section class="px-6 py-20 bg-surface">
+<div class="max-w-md mx-auto text-center">
+<span class="material-symbols-outlined text-tertiary mb-4 text-3xl" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-3xl mb-6 text-on-surface">The Modern Curator</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8 font-light italic">
+                    "Evorae is a dialogue between the artisanal past and the modern future. Each piece is a digital heritage, crafted to feel like a sun-drenched atelier in Jaipur."
+                </p>
+<div class="w-12 h-[1px] bg-outline-variant/30 mx-auto"></div>
+</div>
+</section>
+<!-- Asymmetric Product Grid -->
+<section class="px-6 pb-20">
+<div class="grid grid-cols-2 gap-4">
+<!-- Large Featured Product -->
+<div class="col-span-2 mb-8">
+<div class="bg-surface-container-low rounded-md overflow-hidden relative">
+<img alt="Featured Jewelry" class="w-full aspect-square object-cover" data-alt="Artisan handcrafted gold necklace with raw emerald stone resting on a piece of weathered driftwood with soft ambient shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTM5uAI4h3iIBlfU211s2MPOnRAoN6K44kDGjCf8IhDB3R2g1KRulX3x_oGDDh9MGPQ1QwWSri7P8g0K8-w-gdV-ZTafEdDbq1oMLw7DcGOFEH56jnofaYncTSoUwff6W3IFOdSOZCN-Z5rtUqCjMPxnHXn3dHgIhJJCrWpzGE_bVvDSyqx8CtTZhpJdXVIrggaZFRNoHTT9AojN1frQchwZLaF40d5MwFy3JR8OQUXOkE8cdgLebxxWeLuHQyU_fp9zMT2ZP0btmi"/>
+<div class="p-6 text-center">
+<h4 class="font-headline text-xl mb-1">Ethereal Silk Wrap</h4>
+<p class="font-label text-xs text-secondary tracking-widest uppercase">$240.00</p>
+</div>
+</div>
+</div>
+<!-- Secondary Products -->
+<div class="space-y-4">
+<div class="bg-surface-container-low rounded-md overflow-hidden">
+<img alt="Linen Shirt" class="w-full aspect-[3/4] object-cover" data-alt="Woman wearing a loose-fitting beige linen shirt walking through a minimalist white architecture space with warm sunlight hitting the fabric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSiWtc2Tqa0Xffptuwo68dblj2cuttUC89foSjLhfIEvuypUf22X6eaxnkXmpGwU1oC8JSuaTbTn2ImcEVUWGTEbxbYY4iNL2GC1cFPcqoG4pzuxDaIbFcw8zJASBVJ1WCd5uxBaCAOoyQycOFfJENRw6sb99mvpDodkiPhJJGeKhyk2K3SGSmY5GUawwEtZWkFPCuZuVqEwVFQOdkea-J_E62-4mmJUtErFJ1acHRq1mMzU_WJ1mlY9SXIhZJ7jFOTSGXVcYGXkxQ"/>
+</div>
+<div>
+<h4 class="font-body text-sm font-semibold">Sahara Linen Shirt</h4>
+<p class="font-label text-xs text-on-surface-variant">$110.00</p>
+</div>
+</div>
+<div class="space-y-4 translate-y-8">
+<div class="bg-surface-container-low rounded-md overflow-hidden">
+<img alt="Jewellery" class="w-full aspect-[3/4] object-cover" data-alt="Close up of artisan hammered gold earrings displayed on a handmade ceramic plate with subtle organic textures and warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU5RvgpF0S7Rh1ycdPMmZYaRPqP5YBWY18z_Y9lIZznjNbNxf0Odi4a27wmkvo_MNUsxl04nz6cew6j_PWHPXejgndOpzITHOWTtUU4vUlQB9q0dc5eMsFP_zBuqonfAYKuuVE76dbjvuIM4Dy_xNbwPEbyJ5EEYIjUNGDnCF9yu2RZ03ZyNZOCKQadvIfwBeqdath-CGdDmJrUZiNIEToH8XZZc4ppEn7Rdmc4IHypnC1OsQsVLLFcj_F19nKBsesF2g5f9YhD83v"/>
+</div>
+<div>
+<h4 class="font-body text-sm font-semibold">Oasis Hoops</h4>
+<p class="font-label text-xs text-on-surface-variant">$85.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Artisanal Process Storytelling -->
+<section class="bg-surface-container-low py-20 px-6 mt-10">
+<div class="mb-12">
+<h3 class="font-headline text-4xl leading-tight text-on-surface">The Artisanal Soul</h3>
+<p class="font-body mt-4 text-on-surface-variant leading-relaxed">We reject the rigid, boxy constraints of traditional e-commerce in favor of a high-end editorial experience.</p>
+</div>
+<div class="space-y-12">
+<div class="flex flex-col gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="brush">brush</span>
+</div>
+<h5 class="font-headline text-xl italic">Hand-Softened Finish</h5>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Every edge and corner is treated to feel organic, ensuring our digital presence mimics the tactile nature of our heritage pieces.</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="eco">eco</span>
+</div>
+<h5 class="font-headline text-xl italic">Natural Pigments</h5>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Our palette is rooted in the earth and sun, utilizing Terracotta, Muted Sage, and Ochre to evoke the warmth of natural ateliers.</p>
+</div>
+</div>
+</section>
+<!-- Editorial Quote -->
+<section class="py-24 px-10 text-center">
+<span class="material-symbols-outlined text-secondary mb-6 text-4xl" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline text-2xl italic leading-relaxed text-secondary">
+                "Fashion is not just a purchase; it is a digital heritage piece crafted for the modern curator."
+            </blockquote>
+</section>
+</main>
+<!-- Simplified Mobile Footer -->
+<footer class="bg-surface border-t border-outline-variant/15 pt-16 pb-10">
+<div class="px-6 max-w-screen-2xl mx-auto space-y-12">
+<div class="text-center">
+<h2 class="text-3xl font-headline italic text-secondary mb-4">Evorae</h2>
+<p class="font-body text-sm text-on-surface-variant opacity-70 leading-relaxed">
+                    Crafting a new standard of luxury that respects both heritage and the horizon.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8 text-center">
+<div class="space-y-3">
+<h6 class="font-label text-xs uppercase tracking-widest text-on-surface font-bold">Inquiry</h6>
+<ul class="space-y-2">
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">FAQ</a></li>
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">Shipping</a></li>
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">Returns</a></li>
+</ul>
+</div>
+<div class="space-y-3">
+<h6 class="font-label text-xs uppercase tracking-widest text-on-surface font-bold">Social</h6>
+<ul class="space-y-2">
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">Instagram</a></li>
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">Pinterest</a></li>
+<li><a class="font-body text-sm opacity-60 hover:opacity-100 transition-colors" href="#">Journal</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-10 text-center border-t border-outline-variant/10">
+<p class="text-[10px] font-label uppercase tracking-[0.2em] opacity-40">
+                    © 2024 Evorae. Crafted for the Modern Curator.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2dd",
+              "on-secondary-fixed-variant": "#3c4c25",
+              "on-primary-fixed-variant": "#812914",
+              "surface-variant": "#e6e2dd",
+              "tertiary-fixed": "#ffdea6",
+              "on-secondary-fixed": "#121f01",
+              "secondary-fixed": "#d6eab5",
+              "primary": "#a03f28",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "tertiary": "#7b5800",
+              "outline": "#8a726c",
+              "secondary": "#53643a",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed-dim": "#bacd9b",
+              "primary-fixed-dim": "#ffb4a3",
+              "primary-fixed": "#ffdad2",
+              "on-surface-variant": "#56423d",
+              "background": "#fdf9f4",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0ba",
+              "on-error": "#ffffff",
+              "tertiary-container": "#9a6f07",
+              "on-secondary-container": "#596a40",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d6eab5",
+              "inverse-surface": "#31302d",
+              "on-tertiary-container": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-primary-container": "#120100",
+              "tertiary-fixed-dim": "#f3be58",
+              "surface-container": "#f1ede8",
+              "surface-bright": "#fdf9f4",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "surface-tint": "#a03f29",
+              "surface": "#fdf9f4",
+              "surface-container-high": "#ebe8e3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#3d0700",
+              "primary-container": "#c0573e",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0eb",
+              "inverse-primary": "#ffb4a3",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#ddd9d5"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+        .glass-nav {
+            background: rgba(253, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif tracking-tighter text-on-background">Evorae</div>
+<div class="hidden md:flex items-center space-gap-8 gap-x-8">
+<a class="uppercase tracking-widest text-xs font-semibold text-on-background/70 hover:text-primary transition-all duration-300" href="#">New In</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-primary border-b border-primary pb-1 transition-all duration-300" href="#">Apparel</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-on-background/70 hover:text-primary transition-all duration-300" href="#">Jewellery</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-on-background/70 hover:text-primary transition-all duration-300" href="#">Summer Breath</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-on-background/70 hover:text-primary transition-all duration-300" href="#">About</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-on-background/70 hover:text-primary transition-all duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6 text-on-background">
+<button class="hover:opacity-80 transition-all duration-300 active:scale-95"><span class="material-symbols-outlined" data-icon="search">search</span></button>
+<button class="hover:opacity-80 transition-all duration-300 active:scale-95"><span class="material-symbols-outlined" data-icon="person">person</span></button>
+<button class="hover:opacity-80 transition-all duration-300 active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-primary text-[8px] text-white">1</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 max-w-screen-2xl mx-auto px-6 md:px-12">
+<!-- Product Hero Section (Editorial Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+<!-- Gallery (Asymmetrical Grid) -->
+<div class="lg:col-span-7 grid grid-cols-2 gap-4">
+<div class="col-span-2 overflow-hidden rounded-lg bg-surface-container-low group">
+<img class="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700 ease-out" data-alt="Soft focused editorial shot of a woman wearing a cream handblock printed cotton dress in a sun-drenched minimalist atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC09bLcuHnCYWm0wv8CUPhM0Am2yq2td3jssO3XFdtqChjeYiAm5K6Kfj0ebur83X9JYgRHnLleEA2CkB-R9eAINYHxfgYG_X8OAxnugCv7dmSk7GD3klopbWN1zyK_6TC4UPaFDiHnPqoxulKklKsQ-2UIl4RPSQysGmum37aK_s5Tt6bQxMBUo7zNQSk1Pq2viDWxMDnNFJvhI_eFfKgSnZ6a_GPx3dLXXKWjrFbt2B_QlfBVJyq8T0IuFt8hpR3OnesNsYdxfYnT"/>
+</div>
+<div class="overflow-hidden rounded-lg bg-surface-container-low">
+<img class="w-full aspect-square object-cover" data-alt="Close-up detail of artisanal handblock printing on breathable natural cotton fabric with warm earthy terracotta pigments" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwa5h7b3aLT9UxR9EhbyMYk1B7m9cMH8jztAsnX4NKq7sxIPYwXkrS7KbT8x69P8Bd3ybtWad0rhQGUTyU3rUiHrbR__repAIMvWbSfjNtg1x7MWoXasCm2hJJf_UzJgDuCEbNCcVIG3HrAAJP2ICJfA4IuVUEFLDC5JE6OYpueU62-LU4ACFf23hq9GkXEU-r3J1P8SFBT7jtm7aa54WxnSnG1Nlq92VGhysWTRNaEuSbClvz3Ign3HQ44Muw3ovSZNxKZt119i1h"/>
+</div>
+<div class="overflow-hidden rounded-lg bg-surface-container-low mt-8 lg:mt-12">
+<img class="w-full aspect-[4/5] object-cover" data-alt="Aesthetic layout of a folded premium cotton garment next to a small brass bowl of natural dye pigments" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2K_jJQW9iUkw9aRVVVNQtaFqeLT-LlraN9NKTnLmjySjE34df-ncGO94HEhjT1bl8flAIvSlLXoi4hU6TYdXKSYsVIjVmmaQGNrbOkvBJvtxrWF63fpYj4VKogNZXl7ttiWsQqMp8tn-7u2viBrKRFeSlfGc32K-Cn-d02vhBd36B-Xo7uMtQ8hkJ-mHJR8l_3UB1riQyd7mZFu27c6RbatHVb7s2Mp4vatMGTs6VryAZgl3X8UTiurL0rx1GVx8kDzqH1l0gAGVd"/>
+</div>
+</div>
+<!-- Product Info -->
+<div class="lg:col-span-5 lg:sticky lg:top-36 space-y-10">
+<header class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-secondary">Limited Edition</span>
+<div class="h-px w-8 bg-outline-variant/30"></div>
+</div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-normal leading-tight">Amber Bloom Midi</h1>
+<div class="flex items-baseline gap-4">
+<span class="text-2xl font-body font-light text-primary">₹12,400</span>
+<span class="text-sm text-on-surface-variant font-light italic">Inc. of all taxes</span>
+</div>
+</header>
+<div class="space-y-6">
+<p class="text-lg font-body leading-relaxed text-on-surface-variant/90 italic">
+                        "A love letter to the slow afternoons of summer. Crafted from hand-loomed breathable cotton, each motif is stamped by hand, carrying the whisper of the artisan’s soul."
+                    </p>
+<!-- Size Selection -->
+<div class="space-y-4 pt-4">
+<div class="flex justify-between items-center text-xs uppercase tracking-widest font-semibold">
+<span>Select Size</span>
+<button class="text-secondary hover:underline decoration-1 underline-offset-4">Size Guide</button>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant/30 text-sm hover:border-primary hover:text-primary transition-colors">XS</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-primary text-primary bg-primary-fixed/20 text-sm">S</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant/30 text-sm hover:border-primary hover:text-primary transition-colors">M</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant/30 text-sm hover:border-primary hover:text-primary transition-colors">L</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant/30 text-sm hover:border-primary hover:text-primary transition-colors opacity-40 cursor-not-allowed">XL</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
+<button class="py-4 px-8 bg-primary text-on-primary rounded-xl font-semibold tracking-wide hover:bg-primary-container hover:shadow-lg transform transition-all duration-300 flex items-center justify-center gap-2">
+                            Add to Cart
+                        </button>
+<button class="py-4 px-8 border border-primary text-primary rounded-xl font-semibold tracking-wide hover:bg-primary/5 transition-all duration-300">
+                            Buy Now
+                        </button>
+</div>
+<div class="flex items-center gap-6 pt-6 text-sm text-on-surface-variant font-medium">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="eco">eco</span>
+                            Ethically Sourced
+                        </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+                            Complimentary Shipping
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Storytelling Sections (Tonal Transition) -->
+<section class="mt-32 space-y-24">
+<!-- Materials & Fabric -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-surface-container-low p-12 lg:p-24 rounded-3xl">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase rounded-full">Origin &amp; Material</div>
+<h2 class="text-4xl font-headline">Breathable Soul</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        Our cotton is more than just a fabric; it is a heritage. Sourced from the rain-fed fields of Central India, this long-staple cotton is spun by hand to preserve the natural fiber's strength and softness. It breathes with you, growing softer with every wash, telling a story of comfort that lasts generations.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<span class="font-bold block text-on-surface">100% Organic Hand-loomed Cotton</span>
+<span class="text-sm text-on-surface-variant">Naturally cool and kind to sensitive skin.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<span class="font-bold block text-on-surface">Azo-free Earth Dyes</span>
+<span class="text-sm text-on-surface-variant">Vibrant terracotta and sage derived from roots and barks.</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="relative">
+<div class="absolute inset-0 border-[1.5px] border-outline-variant/30 -m-4 rounded-2xl -z-10"></div>
+<img class="w-full rounded-2xl shadow-xl shadow-on-surface/5" data-alt="Raw natural cotton fibers and textures with soft shadows reflecting sunlight in a rustic artisanal studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-_fh6C82z3ZnTbzhPsxInhkrvnsHFuo_5Mg5_jE5GYsqZ6KZhzypQvJYSiV0_jK9m1NRQlie8Je6riDWdEyHIxXfS5VpB70N-ITujnow0vhJ0u0Ky9qN9ZEqD5f-fdTHK7wCV6auenKpxCU2D3mUPGG7F5S_DF3RDkZZ7wkuW2RRwLjwMsmikpTYgZx2OceQs16pr1GrxGEJvomPGYP7LrL74Airit9wrxsQrgKXD-eGiHge9zyJH31PJUB3VG5AbV2hCDgfAGj6E"/>
+</div>
+</div>
+<!-- Heritage Quote -->
+<div class="text-center max-w-3xl mx-auto space-y-8">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="potted_plant">potted_plant</span>
+<blockquote class="text-3xl md:text-4xl font-headline text-secondary leading-snug italic">
+                    "We do not just make clothes; we preserve the rhythmic heartbeat of the handblock—a legacy carved in wood and pressed into cloth."
+                </blockquote>
+<div class="h-12 w-px bg-outline-variant/40 mx-auto"></div>
+</div>
+<!-- Why This Piece is Special -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-10 space-y-6 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="format_paint">format_paint</span>
+</div>
+<h3 class="text-xl font-headline">Handblock Printed</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Each motif is meticulously stamped by master artisans using carved teakwood blocks. No two pieces are identical, celebrating the beauty of human imperfection.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 space-y-6 rounded-2xl border border-outline-variant/10 shadow-sm mt-4 md:mt-12">
+<div class="h-12 w-12 rounded-full bg-secondary/5 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+</div>
+<h3 class="text-xl font-headline">Limited Heritage</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">This silhouette is part of a curated run of only 50 pieces. Designed for the modern curator who values exclusivity and the slow-fashion movement.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 space-y-6 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="h-12 w-12 rounded-full bg-tertiary/5 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="cleaning_services">cleaning_services</span>
+</div>
+<h3 class="text-xl font-headline">Artisanal Care</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Gentle hand wash with mild detergents. Dry in shade to preserve the earth-dye brilliance. A piece built to be passed down through generations.</p>
+</div>
+</div>
+</section>
+<!-- Complete the Look -->
+<section class="mt-32 border-t border-outline-variant/15 pt-20">
+<div class="flex flex-col md:flex-row md:justify-between items-baseline mb-12 gap-4">
+<h2 class="text-3xl font-headline">Complete the Ensemble</h2>
+<a class="text-sm font-semibold tracking-widest uppercase text-primary hover:opacity-70 transition-opacity" href="#">View All Jewellery</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="space-y-4 text-center">
+<div class="aspect-[3/4] overflow-hidden rounded-md bg-surface-container-low relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted matte gold drop earrings with intricate traditional Indian metalwork details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwyHKwDsu0NJ8oAbHicuK4PXNbWg5ZdfJK39ihdil-fKi7rT8LkdO30HF2PivI0N4FIySNykyidBaasNjw-rDwVe8O0uadzrPOo0XOpzLrKo8i8nNQHviMMgXBV2IZ2K-x2NlXL_dExcn3TUCkkcF7qX3oDolZ18zwyxcrIfHokfuxhP5y9711VVWBSiCA04BbuFu9kJR39_J2gE18I49gpvUu5zKqtlrL0UlR9t_lhLI7rQMj0Pk5by0BUJzLnt8lzg86b2lXf0mI"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-4 py-2 text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-300">Quick Add</button>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline text-lg">Temple Droplets</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">Matte Gold Earrings</p>
+<p class="text-sm font-body text-primary">₹3,200</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="space-y-4 text-center mt-6">
+<div class="aspect-[3/4] overflow-hidden rounded-md bg-surface-container-low relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dainty gold necklace with a single raw emerald stone pendant on a warm sand background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlEDiD1Z8pnB5jw52AZ5YgUnzB3pFxGYhO_AZlfsd82U6L7glVFCNtGbYlArBd30xxrbw8-1vnnvmEBSjPCwY6SXK70dsx3CrI4c0oopAdQnUdLYOspBFKr9vbVVK7_7D_IPKiARdnwZ_uMp8k2jIJspMMB0E8MRzkYUghRoYpsWWiFuPF0Px9lk87tsrzXtvMW-XzLOIqr6l4s-IFou2-Ye2IQoLyaX1CHlBehE1uTpLN0Dj_N05W8AKDImDNvPAdM48Jmtpz4QaA"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-4 py-2 text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-300">Quick Add</button>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline text-lg">Dewdrop Choker</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">18k Gold Plated</p>
+<p class="text-sm font-body text-primary">₹4,800</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="space-y-4 text-center">
+<div class="aspect-[3/4] overflow-hidden rounded-md bg-surface-container-low relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted leather sandals in a deep tan color with minimal geometric straps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc_JvNMygzdbyRuoD4sIly-w54pTqSW8T6B_08oCdSgQvwZbMp6-lo7NpDo48x3btxHUSGC81rMZqS4NJ4KDLyeFhpOfNmvZIeqWcggMA2nw0UVAHzcgJXnuw4Ctt_7lZh9dQ0ecFOvI7ljRKGQT1jpRRUYhChGa-k0R75MWJ1xHtIahon_KajrKOeSe_cSONQ2bE4yX6tyYhnL1YBhv0JUKaxcerO3CGlkI83ek1aEeZCqACB1tp-czfwjYvEpPAFeFPl8eYWVM3h"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-4 py-2 text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-300">Quick Add</button>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline text-lg">Terra Slides</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">Hand-stitched Leather</p>
+<p class="text-sm font-body text-primary">₹5,400</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="space-y-4 text-center mt-6">
+<div class="aspect-[3/4] overflow-hidden rounded-md bg-surface-container-low relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Woven sustainable jute tote bag with brown leather handles in a sunlit setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5_DhP5WhP_OeyEMAwp5ZykCbeoPaMjyICrxXU258_D_euUawstb25IjvXnr-nP9bpuVohx6Xvp1D-T5ZQvg0qCXd9BPpNUjyVWeFtn5gClxKAR99YRTSzteE1GH7bGuVQHUweY-yI0Mbd-3ITI0rWElHuuQ3gJvlh_g8RAUJy_JuyV6dzMAEV09etdXn8bORUWmDFkZIvGcwHO0omXYhWZgFhOp0Aj81B1PmHlEEn_brYAvF8v2Tz-Rjkvz6hAyGubuJcV-EjHhVC"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-4 py-2 text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-all duration-300">Quick Add</button>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline text-lg">Oasis Jute Tote</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">Hand-woven Fiber</p>
+<p class="text-sm font-body text-primary">₹2,800</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background dark:bg-[#1c1c19] pt-20 pb-10 border-t border-outline-variant/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="text-2xl font-serif italic text-secondary">Evorae</div>
+<p class="text-sm font-light text-on-surface-variant leading-relaxed">
+                    Crafted for the modern curator. We bridge the gap between traditional craftsmanship and contemporary living.
+                </p>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold uppercase tracking-widest text-on-surface">Client Care</h5>
+<nav class="flex flex-col space-y-3">
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">FAQ</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Shipping</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Returns</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold uppercase tracking-widest text-on-surface">Explore</h5>
+<nav class="flex flex-col space-y-3">
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Our Story</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors underline decoration-1 underline-offset-4" href="#">Artisans</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Stockists</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Journal</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold uppercase tracking-widest text-on-surface">Follow</h5>
+<div class="flex space-x-6">
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Instagram</a>
+<a class="text-sm font-body text-on-surface opacity-60 hover:opacity-100 hover:text-tertiary transition-colors" href="#">Pinterest</a>
+</div>
+<div class="pt-4">
+<form class="flex border-b border-outline-variant/30">
+<input class="bg-transparent border-none text-sm w-full py-2 px-0 focus:ring-0 placeholder:text-on-surface-variant/40" placeholder="Join our atelier newsletter" type="email"/>
+<button class="material-symbols-outlined text-secondary hover:translate-x-1 transition-transform" data-icon="east" type="submit">east</button>
+</form>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center px-12 border-t border-outline-variant/5 pt-10">
+<p class="text-xs font-light text-on-surface-variant tracking-wide">© 2024 Evorae. Crafted for the Modern Curator.</p>
+</div>
+</footer>
+</body></html>

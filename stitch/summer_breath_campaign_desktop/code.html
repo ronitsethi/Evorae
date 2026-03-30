@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Summer Breath | Evorae Campaign</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2dd",
+              "on-secondary-fixed-variant": "#3c4c25",
+              "on-primary-fixed-variant": "#812914",
+              "surface-variant": "#e6e2dd",
+              "tertiary-fixed": "#ffdea6",
+              "on-secondary-fixed": "#121f01",
+              "secondary-fixed": "#d6eab5",
+              "primary": "#a03f28",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "tertiary": "#7b5800",
+              "outline": "#8a726c",
+              "secondary": "#53643a",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed-dim": "#bacd9b",
+              "primary-fixed-dim": "#ffb4a3",
+              "primary-fixed": "#ffdad2",
+              "on-surface-variant": "#56423d",
+              "background": "#fdf9f4",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0ba",
+              "on-error": "#ffffff",
+              "tertiary-container": "#9a6f07",
+              "on-secondary-container": "#596a40",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d6eab5",
+              "inverse-surface": "#31302d",
+              "on-tertiary-container": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-primary-container": "#120100",
+              "tertiary-fixed-dim": "#f3be58",
+              "surface-container": "#f1ede8",
+              "surface-bright": "#fdf9f4",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "surface-tint": "#a03f29",
+              "surface": "#fdf9f4",
+              "surface-container-high": "#ebe8e3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#3d0700",
+              "primary-container": "#c0573e",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0eb",
+              "inverse-primary": "#ffb4a3",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#ddd9d5"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 40px 80px -20px rgba(28, 28, 25, 0.04);
+        }
+        .glass-nav {
+            background: rgba(253, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif tracking-tighter text-[#1c1c19] dark:text-[#fdf9f4]">Evorae</div>
+<div class="hidden lg:flex items-center space-x-8">
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">New In</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">Apparel</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">Jewellery</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#a03f28] border-b border-[#a03f28] pb-1" href="#">Summer Breath</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">About</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-6 text-[#a03f28]">
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section: Editorial Impact -->
+<section class="relative min-h-[921px] flex items-center px-12 overflow-hidden">
+<div class="grid grid-cols-12 w-full max-w-screen-2xl mx-auto gap-8 items-center">
+<div class="col-span-12 lg:col-span-5 z-10">
+<span class="text-tertiary font-semibold tracking-widest uppercase text-xs mb-4 block">The Collection 2024</span>
+<h1 class="font-headline text-7xl lg:text-9xl text-on-background leading-[0.9] mb-8 tracking-tighter">
+                        Summer <br/><span class="italic text-secondary">Breath</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-md mb-10 leading-relaxed">
+                        An ode to the stillness of mid-afternoon. Where handblock printed cotton meets the cool touch of artisanal silver. Ease, lightness, and everyday elegance.
+                    </p>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-xl font-semibold tracking-wide hover:bg-primary-container transition-all hover:-translate-y-1 editorial-shadow">
+                        Explore the Narrative
+                    </button>
+</div>
+<div class="col-span-12 lg:col-span-7 relative">
+<div class="aspect-[4/5] w-full rounded-lg overflow-hidden editorial-shadow bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Stunning portrait of a woman in a flowing white handblock printed cotton dress standing in a sun-drenched minimalist courtyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwPC8WU9BLfcP6y06OiotQpCt3KJ581kHmvB_K09-DqA_Cq2czqB0cAdUDzlbcLQ1sfKJdQ-pvGTwdnSCHSUvx2XClGtOiswyWOyZuRuy-2kZim41HYck7laKrlhg7sCebDzcYL9J4cq6SSiPCYshrY9EY4D8BjC9FxmgFJD4dhOM2PDE0p9Fl6qSdnl3krGTjF9Iv7htx4W4lc-zxMSKHEqs5hsBrphL7tp5w9jjPjwj5zfsOxY5ZP-4AdScldCJxgZny1Yl7UFeF"/>
+</div>
+<!-- Asymmetric Overlay Image -->
+<div class="absolute -bottom-12 -left-20 hidden lg:block w-64 h-80 rounded-lg overflow-hidden border-[12px] border-background editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Extreme close up of delicate silver jewellery pieces with intricate textures resting on a piece of raw organic linen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt-omAop5JGtKoovJAiC_loZJ0MLyHd0tw4oZ9knybm_2PsRqugB1fzss1deVLcME9wnrdMVSzsrXBeYrpBxuqZlMKPlQHgMxPNBPMpM0s9kS4PbPFt3RLlqhrPQ3cT94a3znbhZYK5fLwZEWE3UufaUgHmOHIIEShUSdspzy__jRpzdxJSdXkdH97wWaJcggr1T9XQIWzpCN69MiVAyTsIWKId-p8VUKNLawDpQYk0qYreefoOTojzMld0LL69C8lGG0mTQ5Emi7-"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Narrative Quote Section -->
+<section class="py-32 bg-surface-container-low">
+<div class="max-w-4xl mx-auto text-center px-6">
+<span class="material-symbols-outlined text-tertiary mb-6 scale-150" data-icon="eco">eco</span>
+<h2 class="font-headline text-3xl md:text-5xl text-secondary italic leading-snug">
+                    "We sought to capture the feeling of a breeze through a window—the way it lifts the fabric and cools the skin. A collection that doesn't demand attention, but earns it through quiet detail."
+                </h2>
+<div class="mt-8 flex justify-center space-x-4 items-center">
+<div class="h-px w-12 bg-outline-variant"></div>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant">The Curator's Note</span>
+<div class="h-px w-12 bg-outline-variant"></div>
+</div>
+</div>
+</section>
+<!-- The Collage Grid: Narrative & Pieces -->
+<section class="py-24 px-12 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Large Narrative Block -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sun-bleached flat lay of summer essentials including a wide-brimmed straw hat and a light cotton scarf on a sandy surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz_ZbLWwZ48zDhx1hcF4FGCavoD9Y4o5mRIzti5cXfsX0kHW_f4E_mirV1b-N6vQo_J-m1Kg0kTkAqq7pgbu8qkLcOmCM44EBvX-uYbPyRxwBc4Gs4HMOWBEogKswG0P4XvKmDUscQX9sZkqrsOBg_SFyUZFwAfVaJ4IORQgZ86UQJGGBBi0Ud-QS2TQjsbbc2NUPCH2kepa1Pas1_VuEyHRGQ51aqh1o08RrBisWBT4KMWtNVRC1RD7J1wkH64DUIAYz8k5A_NhQ_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex flex-col justify-end p-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<h3 class="font-headline text-3xl">Breathable Handblock</h3>
+<p class="font-body text-sm mt-2 opacity-90">Traditional techniques for a modern summer.</p>
+</div>
+</div>
+<!-- Product 1: The Artisan Bloom -->
+<div class="bg-surface-container-low p-8 flex flex-col items-center justify-center text-center space-y-6">
+<div class="w-full aspect-square bg-surface-container-highest rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Elegant midi-length summer dress with soft pastel handblock floral patterns draped over an antique wooden chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1KTgS_xY0ewIK25_35CS5aE9hocvs0ZnQPspGDxMPXoIK2meWKIQe3Sit2_8labp-IR0ZuIhQFxjdgmM4LyA9Kj0CIn5FdSqk2CDcW4yxu6SbpcRFlZHvh1hW-vcbPtxjBWeMNbnXAyfs6pHI_htSwlVZ731EYiMmkbfr7v3nF8Fzqcb_FRnOe4WyjgAAy-t4xAy8hKkmGTV8B2LXxqgTkKPa4PcLCEXxas-DtebdlU0sC5ZneBxz0cgkbEickaWyT1zEZPACgV8f"/>
+</div>
+<div>
+<h4 class="font-headline text-xl text-on-background">The Bloom Midi</h4>
+<p class="text-primary font-semibold mt-1">₹ 8,400</p>
+</div>
+<button class="text-secondary font-semibold uppercase tracking-widest text-xs border-b border-transparent hover:border-secondary transition-all">View Details</button>
+</div>
+<!-- Detail Text Block -->
+<div class="flex flex-col justify-center p-8 bg-primary-container/10 border border-primary/5">
+<h3 class="font-headline text-2xl text-primary mb-4 italic">Interplay</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                        Our Summer Breath collection explores the synergy between textured fabrics and the reflective quality of silver. Every garment is paired with a signature jewellery piece that mirrors its print.
+                    </p>
+</div>
+<!-- Product 2: Silver Motif -->
+<div class="bg-surface-container-low p-8 flex flex-col items-center justify-center text-center space-y-6">
+<div class="w-full aspect-square bg-surface-container-highest rounded-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Detailed shot of a pair of handmade sterling silver earrings featuring a delicate sunburst motif on a warm sand background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLl99xcCm-h7vrdjmjCXkt1C38aEwx2BiQYRRLH-UeVRODl75WlOC7z5MasixPpvg5Gi0tCLLnEjnjRXjyreSHq5wENDSfux5V2Zo2RonNcTJ9EOzpvN3lhK1JXQfYkSs40ElW1HRcqdHxQr5eLBKF0HuYiFScIRYrRPjOYYIKbppqlZnyrGKU8PkE7FBF6nWaV1Y7VMgm6yW3NXCdFyYEp7Vn8-codw2sdPlafg_hz08XNtKqc_R3FTTSdc-kSXLC6k3Ud7kQCH96"/>
+</div>
+<div>
+<h4 class="font-headline text-xl text-on-background">Solstice Earrings</h4>
+<p class="text-primary font-semibold mt-1">₹ 3,200</p>
+</div>
+<button class="text-secondary font-semibold uppercase tracking-widest text-xs border-b border-transparent hover:border-secondary transition-all">View Details</button>
+</div>
+<!-- Story Block -->
+<div class="md:col-span-2 flex items-center bg-surface p-12 space-x-12">
+<div class="w-1/2 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="High quality close up texture of beige linen fabric showing the natural weave and raw imperfections under soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ7qqJ7IrU0NOSQMxrYs9eCdsdN7JXS1pBcis0YA06UbBLq92gJgliyr1DtsxqAJIvc8TWube65uxApVIvtYUAj8H9mYlguda1CO1YCWwFkgXaPNZzR1g_kMEzNMwIsK9KQoo5_9WrIkDDKCCixVf-3UTyXtVGxAQV545sTAMfkxsUOgIxpHA3BaXNuaT-ZIM3-AEHKQyxqKsSekS917OPghZTcJwrnu7DIC2dBY8nHt5XYMhCXTewkYtP-r8UpBM3um6sgCB_ZlIb"/>
+</div>
+<div class="w-1/2">
+<h3 class="font-headline text-2xl mb-4">The Materiality of Ease</h3>
+<p class="text-sm text-on-surface-variant mb-6">We use only 100% long-staple cotton, ensuring that each wash makes the garment softer. It is a lifelong companion for the sunniest days.</p>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center" href="#">
+                            Our Process <span class="material-symbols-outlined ml-2 scale-75" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Full Width Atmosphere Image -->
+<section class="h-[716px] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Cinematic landscape of a hazy coastal sunset with tall grass swaying in the breeze and soft warm atmospheric glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhJgnlKponROcp8eoEkBg_Yu2UmDn9UKfceSObRjfJeNtrzf7m0r1cG496vfjw8zYYg3WbRd4tmjaQgR6HuwHxOTJ3tKdDO23fpuA3E02jQZN2UBuZT68X8-wcRsU81ZkuoJvGhkCoH4Ol0vNbTRvVqQoZXJ_ftIwls7qscYeNlKXlntu1NuGzHlttpsRvWZG9fDh-LWhoQTs9jo367XzYzlLNgCqiTYzoGFSNhnKsuOeC_Sg1XpgR2fj7XBu7xY6y9nTc1fXdxl04"/>
+</section>
+<!-- Featured Lookbook Slider / Carousel Style -->
+<section class="py-24 px-12 bg-background">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-tertiary font-semibold tracking-widest uppercase text-xs mb-2 block">Curated Pairings</span>
+<h2 class="font-headline text-5xl">The Lookbook</h2>
+</div>
+<div class="flex space-x-4">
+<button class="p-3 rounded-full border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-3 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Look 1 -->
+<div class="space-y-6">
+<div class="aspect-[3/4] overflow-hidden rounded-lg bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Editorial fashion shot of a woman in a light blue cotton wrap dress standing near a white textured wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdJlUMtHS7veCz0xBmltJfCQ1drBzf5tB1YAb40tSDDPh8ryXK0sHtfqgYiSmnuxEICqqr-RfgOQ_zq0GI1xsiGgfy4hFm7VAX8fH2wCXn1E-2NUESxAJlXrzwwnO33wBHqIdDFh7Egsx_BIJjTMPkmGVz6JlNajsyeM8bTcMFv_9Ml8XLREC6hzGtstFNy4XvEa3vxqY6sYzeu9yWuZt_LUHCzTngWTAEB14igSMgHkvShOZ0e2C7nNWlNr4bbT__lGC3XMFpfIs0"/>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<h5 class="font-headline text-lg">Azure Day Look</h5>
+<p class="text-xs text-on-surface-variant font-label uppercase">Dress &amp; Choker Set</p>
+</div>
+<button class="p-4 bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Look 2 -->
+<div class="space-y-6 translate-y-12">
+<div class="aspect-[3/4] overflow-hidden rounded-lg bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Minimalist composition showing a white linen shirt and silver rings placed on an organic stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFjaboJfG28pYtA9YjBiCblEeUgVfpOU70bMyKyixWtD1sber50UxHknkDLlPXPDPxxeH_EKWQT_rzwfUxmITZivfBKrsDOVRu-tOVXOS6BE_WvNH7INEBXWRrp4TJe_Qq3MF2aAqY4pv3FWUEwFndOwr72hYrmf7va4uuxlyJj8Fq2Q6yDZGD51LfsjOFv0FH5LpEKp37iiweK40967MMC8o1JwqO6lckPeKtJUQgGwf7_t1Oi6UrWPvUaTD0kflf985az0aSzYId"/>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<h5 class="font-headline text-lg">Pure Linen Story</h5>
+<p class="text-xs text-on-surface-variant font-label uppercase">Shirt &amp; Band Ring</p>
+</div>
+<button class="p-4 bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Look 3 -->
+<div class="space-y-6">
+<div class="aspect-[3/4] overflow-hidden rounded-lg bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Woman from behind wearing a wide sun hat and a backless summer dress walking through high grass at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1N4qgHyiZHvKHhhZqcXjIhx1J67gmrf2aFBI4lsCFNYSkEUnB1exxZ-r2ysz1swmXW3P54qqiXjiOzvJB0GpAtSXNRD2hvka8ES42USDAGI-v0W4f089AdqLOZtfe_RNBhFru0FMcCmXjt1jpkdsonb0dqjQhs2eM_wK25wgRVsWltmuWgBexMOf04-9So9Y6Is8FWzxwCiQkgfTvQkqY0-vnDglCXESDJCgg0VvpF9XkW61CJj_S8J3uFcvAw87UV1nIp1b3WIud"/>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<h5 class="font-headline text-lg">Golden Hour Dusk</h5>
+<p class="text-xs text-on-surface-variant font-label uppercase">Kaftan &amp; Statement Studs</p>
+</div>
+<button class="p-4 bg-surface-container-high rounded-full hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Editorial CTA -->
+<section class="py-40 flex flex-col items-center text-center">
+<h2 class="font-headline text-6xl mb-12 italic text-secondary">Carry the breath of summer.</h2>
+<div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+<a class="bg-on-background text-background px-12 py-5 rounded-xl font-bold tracking-widest text-xs uppercase hover:bg-primary transition-colors" href="#">Shop Apparel</a>
+<a class="border border-on-background text-on-background px-12 py-5 rounded-xl font-bold tracking-widest text-xs uppercase hover:bg-surface-container-low transition-colors" href="#">Shop Jewellery</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fdf9f4] dark:bg-[#1c1c19] border-t border-[#outline_variant]/15 pt-20 pb-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-2xl font-serif italic text-[#53643a] mb-6">Evorae</div>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">
+                    Crafted for the modern curator. We bridge the gap between traditional craftsmanship and contemporary living.
+                </p>
+</div>
+<div>
+<h6 class="font-label text-xs uppercase tracking-widest font-semibold text-on-surface-variant mb-6">Customer Care</h6>
+<ul class="space-y-4 text-sm font-light">
+<li><a class="text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">FAQ</a></li>
+<li><a class="text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Shipping</a></li>
+<li><a class="text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Returns</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label text-xs uppercase tracking-widest font-semibold text-on-surface-variant mb-6">Follow Us</h6>
+<ul class="space-y-4 text-sm font-light">
+<li><a class="text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Instagram</a></li>
+<li><a class="text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Pinterest</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label text-xs uppercase tracking-widest font-semibold text-on-surface-variant mb-6">Subscribe</h6>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant py-2 focus:outline-none focus:border-primary text-sm" placeholder="Your email address" type="email"/>
+<button class="absolute right-0 bottom-2 text-primary">
+<span class="material-symbols-outlined scale-75" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center px-12 border-t border-outline-variant/10 pt-10">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant opacity-50 font-semibold">© 2024 Evorae. Crafted for the Modern Curator.</p>
+</div>
+</footer>
+</body></html>

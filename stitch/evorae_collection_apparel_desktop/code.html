@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evorae | The Modern Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2dd",
+              "on-secondary-fixed-variant": "#3c4c25",
+              "on-primary-fixed-variant": "#812914",
+              "surface-variant": "#e6e2dd",
+              "tertiary-fixed": "#ffdea6",
+              "on-secondary-fixed": "#121f01",
+              "secondary-fixed": "#d6eab5",
+              "primary": "#a03f28",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "tertiary": "#7b5800",
+              "outline": "#8a726c",
+              "secondary": "#53643a",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed-dim": "#bacd9b",
+              "primary-fixed-dim": "#ffb4a3",
+              "primary-fixed": "#ffdad2",
+              "on-surface-variant": "#56423d",
+              "background": "#fdf9f4",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0ba",
+              "on-error": "#ffffff",
+              "tertiary-container": "#9a6f07",
+              "on-secondary-container": "#596a40",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d6eab5",
+              "inverse-surface": "#31302d",
+              "on-tertiary-container": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-primary-container": "#120100",
+              "tertiary-fixed-dim": "#f3be58",
+              "surface-container": "#f1ede8",
+              "surface-bright": "#fdf9f4",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "surface-tint": "#a03f29",
+              "surface": "#fdf9f4",
+              "surface-container-high": "#ebe8e3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#3d0700",
+              "primary-container": "#c0573e",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0eb",
+              "inverse-primary": "#ffb4a3",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#ddd9d5"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 40px 80px -20px rgba(28, 28, 25, 0.04);
+        }
+        .glass-nav {
+            background: rgba(253, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f4]/80 dark:bg-[#1c1c19]/80 backdrop-blur-md">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-3xl font-headline tracking-tighter text-[#1c1c19] dark:text-[#fdf9f4]">Evorae</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">New In</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#a03f28] border-b border-[#a03f28] pb-1 transition-all duration-300 ease-in-out" href="#">Apparel</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">Jewellery</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">Summer Breath</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300 ease-in-out" href="#">About</a>
+</div>
+<div class="flex items-center space-x-6 text-[#a03f28] dark:text-[#c0573e]">
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button class="hover:opacity-80 transition-all active:scale-95 duration-200 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[8px] w-3 h-3 flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Editorial Banner -->
+<section class="px-6 md:px-12 py-12 max-w-screen-2xl mx-auto">
+<div class="relative w-full h-[716px] overflow-hidden rounded-lg group">
+<img alt="Artisanal Apparel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dreamy wide shot of handblock printed fabrics hanging in a sun-drenched Indian courtyard, soft warm morning light, earth tones and textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM_P5U7-lIcPSrSH1gNHpxLRCO39EDwLO3f0Lc4e7J2vh55JFoJIzn5mZOHxPOAe3loAkY4LSq92PTLDFSO4oWZmUzUOB9Ncfb0ENGFOKNcsVyjY9m_NTtVtIyzxb-JC_K5TFkDUcE7PKUK7_Zqf2BYn5_1PL5d9Pg_GfI5X3L1Rmq3UmPGuNM8ey2yKyC9DZhaGpjfvcbgVpLHxgo7qeGoXZHzRnE43YGV6wIWPfF9DSyB-GgUyai8-qE9KWmuuUVUZ6jDzcEjPR6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+<div class="absolute bottom-16 left-12 max-w-2xl">
+<h1 class="text-6xl md:text-8xl font-headline text-surface mb-6 leading-tight">The Apparel <br/><span class="italic font-normal">Edit</span></h1>
+<div class="bg-surface/10 backdrop-blur-md p-8 border border-surface/20 rounded-lg">
+<p class="text-surface font-body text-lg leading-relaxed">
+                            Crafted from the finest organic cotton, our apparel collection honors the ancient tradition of handblock printing. Each piece is a conversation between the artisan's hand and the sun-bleached earth, designed for a lifestyle of intentionality and breathable grace.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Sort Bar -->
+<section class="sticky top-[88px] z-40 bg-background/95 backdrop-blur-sm border-b border-outline-variant/15 py-4 px-12">
+<div class="max-w-screen-2xl mx-auto flex flex-wrap justify-between items-center gap-4">
+<div class="flex items-center space-x-8">
+<button class="flex items-center space-x-2 text-sm font-semibold uppercase tracking-widest text-on-background/80 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+<span>Filter By</span>
+</button>
+<div class="hidden md:flex items-center space-x-6">
+<span class="text-xs uppercase tracking-tighter text-outline font-bold">Quick Select:</span>
+<button class="text-xs uppercase tracking-widest px-4 py-1 rounded-full border border-outline-variant/30 hover:border-primary hover:text-primary transition-all">Organic Cotton</button>
+<button class="text-xs uppercase tracking-widest px-4 py-1 rounded-full border border-outline-variant/30 hover:border-primary hover:text-primary transition-all">Linen Blend</button>
+<button class="text-xs uppercase tracking-widest px-4 py-1 rounded-full border border-outline-variant/30 hover:border-primary hover:text-primary transition-all">Indigo Dye</button>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<span class="text-sm font-body text-outline italic">Showing 24 of 86 pieces</span>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<select class="bg-transparent border-none text-sm font-semibold uppercase tracking-widest text-on-background/80 focus:ring-0 cursor-pointer">
+<option>Sort By: Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Curated Favorites</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-12 py-20 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+<!-- Product 1: Asymmetrical Hero Entry -->
+<div class="group lg:col-span-2 flex flex-col md:flex-row bg-surface-container-low rounded-lg overflow-hidden h-full">
+<div class="w-full md:w-3/5 relative overflow-hidden">
+<img alt="Handblock Printed Tunic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Editorial fashion shot of a woman in a long white linen tunic, standing in soft outdoor light against a textured clay wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtgtF6iXd_LWtwNZhwqCJ1HneoIQmFhZ2QEl6AS8I2BIqDwMymp4aPqo7KE5ufJgkF8x-yzPUHFl9Ja3-AFJkmGQJ5Sdf_LyU5UHgrUucDv6EnCNTxaxXfvuIhju7kO_t7vhEZ0nefnttukh2YuI8gerjzWmwDLxNu3qyXGp7UfxOT3aNbgRv4wIdaXFLlD0QSurF5mofHmd9Gfx7FLtb3FcmreZP5ehRgljMdVQSf6aaNWqZLfh7y9yZDTLJW3tA_AebRRhM13tlQ"/>
+<span class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Curator's Choice</span>
+</div>
+<div class="w-full md:w-2/5 p-10 flex flex-col justify-center">
+<span class="text-secondary text-xs uppercase tracking-[0.2em] mb-4">The Summer Series</span>
+<h3 class="text-3xl font-headline mb-4 group-hover:text-primary transition-colors">Hand-Pressed Indigo Tunic</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8">Naturally dyed using heritage techniques, this breathable cotton piece transitions effortlessly from atelier to sunset coast.</p>
+<div class="flex items-baseline space-x-4 mb-8">
+<span class="text-2xl font-light text-on-background">$185.00</span>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-primary-container transition-all hover:-translate-y-1">Add to Atelier</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Block Print Skirt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A mustard yellow handblock printed cotton skirt hanging against a soft cream background, detailed artisan pattern visible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEoqDVBhqK1wkAN4CEX94Mns519ilQaqozFuAOsIVQ7xwDMiB-P22UsQRvAC3qc2AAbctD4dFdLoxXPpjT8Moek4LatD7Lu8JHHH9fpcnfPpj-Bw8y_eYMpxpIbHzOXCXQFq7FxqaptNypDV_mW6FM-v_O7XF4F9P4He3gPdHFSDkAfRLX5JPgZ84OrUUFvAuJhoFI1bZePICEn1W5jEmXgAMRN6V15aQxskp9017fFC9gn4H1rVOWzo2Vm7anjbeUmP3C3KGRw-xY"/>
+<button class="absolute bottom-4 right-4 bg-surface/80 backdrop-blur-md p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+<span class="material-symbols-outlined text-on-background" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Amber Marigold Skirt</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Artisan Cotton</p>
+<span class="text-primary font-bold">$120.00</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Linen Shirt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a premium ivory linen shirt texture with handcrafted wooden buttons in natural warm sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNIjRdZQ4xTdrNMGycUd-y3V5VusIbNFZVcXBYFa0xLH9np-54tWb1ojPYeRvFJ70PBiy64as-yUz1FaBOKzeIwr8qKsXTlfWsrcyYiTwa7FITjOEC-4UB6u7a_Fo-d5lfqKPTDmyStTSx5ahkO-i3UKxvqGmA-a4WAleipWQKrDjVkiWoli1Xttdmx7dr1aWvfp73y_QPRLbDmYGsqGcXajdmbHxXsHLvHtvKVCpA-XUD47bQiAVQFYvLnMUUWSBgIEljGZYX5hEZ"/>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Desert Bloom Blouse</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Pure Linen</p>
+<span class="text-primary font-bold">$145.00</span>
+</div>
+</div>
+<!-- Heritage Quote Interstitial -->
+<div class="col-span-full py-32 flex flex-col items-center text-center max-w-4xl mx-auto">
+<span class="material-symbols-outlined text-tertiary mb-6 scale-150" data-icon="eco">eco</span>
+<h2 class="text-4xl md:text-5xl font-headline italic text-secondary leading-snug">
+                        "The beauty of handblock printing lies in its gentle imperfections—proof of the human heart behind the craft."
+                    </h2>
+<p class="mt-8 text-xs uppercase tracking-[0.3em] font-bold text-outline">From our Curated Heritage Journal</p>
+</div>
+<!-- Product 4 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Earrings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Handcrafted hammered gold earrings resting on a piece of raw sandstone, elegant soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-eTiiJBE0mseTnEgRvo4vJwerE95D6mp1d8KhT5UvTWkbMRL83e9W6swAW1s1LoBE2cveHEUHa_WGwAcmXUd9Z_tT8Pf6ONsq_h7EwtbjbQsL7NLlrCQdSS9OH4CxLH00cjp2Lz006YXMGUDttfOjXALpEA5bJomkfKObbNjdIlYoom0cc2wCTbRHrTWKOCtNGAhvQaUYOZa7h28nc5jx2AYt974Lzm6oSRVaPCWeSZgY3AKHlshl-YY6_Y3LGbqLzd6EF-a234rl"/>
+<span class="absolute top-4 right-4 bg-tertiary text-on-tertiary text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Jewellery Preview</span>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Solis Gold Hoops</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Recycled 22k Gold</p>
+<span class="text-primary font-bold">$340.00</span>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Summer Dress" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Flowing maxi dress with delicate floral prints in sage green and white, studio shot with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-VyHKc4VfW8hUeMr-BGlbd30UV-COm1W-fVnMan_p6Iytc2flJu1fUeI-jFdVbkie0iLW07Xx4UVutTu3JZFBp8AcozEVXXKmP3mUJrcDkDf6xTKSuabQCg7g6Zcaj3rJPYqddDZQmaHBg9gQVx4UEGdVP36mX733_jCDV2yz2JAkXmNW-oTWEolevUzSsT6n0AOYLAYnyZcl-m5GjBtdmvgFz3SR-C2ymv2qTPwNtuKZr887uKgquF8VMxhGI9Gfk-XsUNlTGSQ"/>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Verdant Meadow Maxi</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Summer Breath Collection</p>
+<span class="text-primary font-bold">$210.00</span>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Artisan Bag" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Hand-woven jute and leather tote bag styled on a rustic wooden bench next to a sunhat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcHp8kahuUUFiO8fj67pB6pqiCLQdlgnTVpBjM2zVVgcFDN98Cm23hddbZc27ggMO6TJXi0-ZGyEF7FlCILFteWb3warxglQ0gpehI6icBDIo_WijPBi0JixPeIT8GA-t6DoiGtJ1NiwBW_QGnZbCB93IDqJNpTpihHpN01lat5nI_D-vXQDIROVdwsZk0gI8IorcdnBNIpLWEX6yQ_sAGvwGSnzgQr7Tf7A-LORyJAkEL0MrzA2iJ9GpkRllyYIISSVssownK7a1e"/>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Atelier Carryall</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Woven Jute &amp; Leather</p>
+<span class="text-primary font-bold">$165.00</span>
+</div>
+</div>
+<!-- Product 7 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="White Top" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist white cotton top with intricate eyelet embroidery details, soft editorial lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-wXLEjpeP8lC82aEbrrHIiOTz6N3nQCXK86oAMoP-ZGdudVCPfccff4gAO1TMEAMrjTExur63K_OoFK1iqKXPkeg8Iwi48-OzxhfZOuw9sQRR95AQkcUS923DKMWe3RbMIbK_vTbI2rzlmL7WYv26ffyH8ZVEZQ5PKt4Gp_vVnX2fpTHJQSg_wWz4Ty9DdKDKtprXEGYxF_kS-Sr9eA6yCJ7i_8dZgoyCXMFIoyRfh6iZ3JOh1SnWmj0ZpQd40c99SXwAAuXNyT9n"/>
+</div>
+<div class="text-center px-4">
+<h4 class="font-headline text-lg mb-1">Ether Eyelet Top</h4>
+<p class="text-outline text-xs uppercase tracking-widest mb-2">Summer Breath</p>
+<span class="text-primary font-bold">$98.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Journal Sign-up -->
+<section class="mb-20 px-6 md:px-12">
+<div class="bg-surface-container py-24 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="text-tertiary text-xs uppercase tracking-[0.4em] font-bold mb-6">The Curator's Journal</span>
+<h2 class="text-5xl font-headline text-on-background max-w-2xl mb-8 leading-tight">Stories of Craft, Heritage, and Living Well.</h2>
+<p class="text-on-surface-variant font-body mb-12 max-w-lg">Join our community for early access to collection drops and artisanal stories delivered to your inbox.</p>
+<div class="flex w-full max-w-md border-b border-outline">
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-on-background py-4 px-0 placeholder:text-outline-variant" placeholder="Your Email Address" type="email"/>
+<button class="uppercase tracking-widest text-xs font-bold text-primary hover:text-primary-container transition-colors ml-4">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fdf9f4] dark:bg-[#1c1c19] pt-20 pb-10 border-t border-[#outline_variant]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<div class="text-2xl font-serif italic text-[#53643a] mb-6">Evorae</div>
+<p class="text-sm font-body text-[#1c1c19]/60 dark:text-[#fdf9f4]/60 leading-relaxed italic">
+                    Crafting a digital heritage through modern curation and ancient artistry. Inspired by the earth, made for the soul.
+                </p>
+</div>
+<div>
+<h5 class="text-xs uppercase tracking-widest font-bold text-[#a03f28] mb-6">Collections</h5>
+<ul class="space-y-4 text-sm font-body text-[#1c1c19]/60 dark:text-[#fdf9f4]/60">
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors underline decoration-1 underline-offset-4 text-[#a03f28]" href="#">Apparel</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Jewellery</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Summer Breath</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs uppercase tracking-widest font-bold text-[#a03f28] mb-6">Experience</h5>
+<ul class="space-y-4 text-sm font-body text-[#1c1c19]/60 dark:text-[#fdf9f4]/60">
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Atelier Visits</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs uppercase tracking-widest font-bold text-[#a03f28] mb-6">Connect</h5>
+<ul class="space-y-4 text-sm font-body text-[#1c1c19]/60 dark:text-[#fdf9f4]/60">
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Pinterest</a></li>
+<li><a class="hover:text-[#7b5800] transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-outline-variant/10 px-12 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-[#1c1c19]/40">
+<div>© 2024 Evorae. Crafted for the Modern Curator.</div>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

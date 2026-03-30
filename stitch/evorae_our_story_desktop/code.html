@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Evorae | The Modern Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2dd",
+              "on-secondary-fixed-variant": "#3c4c25",
+              "on-primary-fixed-variant": "#812914",
+              "surface-variant": "#e6e2dd",
+              "tertiary-fixed": "#ffdea6",
+              "on-secondary-fixed": "#121f01",
+              "secondary-fixed": "#d6eab5",
+              "primary": "#a03f28",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f7f3ee",
+              "tertiary": "#7b5800",
+              "outline": "#8a726c",
+              "secondary": "#53643a",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed-dim": "#bacd9b",
+              "primary-fixed-dim": "#ffb4a3",
+              "primary-fixed": "#ffdad2",
+              "on-surface-variant": "#56423d",
+              "background": "#fdf9f4",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0ba",
+              "on-error": "#ffffff",
+              "tertiary-container": "#9a6f07",
+              "on-secondary-container": "#596a40",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#d6eab5",
+              "inverse-surface": "#31302d",
+              "on-tertiary-container": "#ffffff",
+              "on-background": "#1c1c19",
+              "on-primary-container": "#120100",
+              "tertiary-fixed-dim": "#f3be58",
+              "surface-container": "#f1ede8",
+              "surface-bright": "#fdf9f4",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "surface-tint": "#a03f29",
+              "surface": "#fdf9f4",
+              "surface-container-high": "#ebe8e3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#3d0700",
+              "primary-container": "#c0573e",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0eb",
+              "inverse-primary": "#ffb4a3",
+              "on-surface": "#1c1c19",
+              "surface-dim": "#ddd9d5"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .font-serif { font-family: 'Noto Serif', serif; }
+      .font-sans { font-family: 'Manrope', sans-serif; }
+      .tonal-transition-bg-surface-container-low { background-color: #f7f3ee; }
+      .active-nav-link { color: #a03f28; border-bottom: 1px solid #a03f28; padding-bottom: 4px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f4]/80 dark:bg-[#1c1c19]/80 backdrop-blur-md transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif tracking-tighter text-[#1c1c19] dark:text-[#fdf9f4]">Evorae</div>
+<div class="hidden md:flex space-x-8">
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300" href="#">New In</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300" href="#">Apparel</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300" href="#">Jewellery</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300" href="#">Summer Breath</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#a03f28] border-b border-[#a03f28] pb-1 transition-all duration-300" href="#">About</a>
+<a class="uppercase tracking-widest text-xs font-semibold text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#a03f28] transition-all duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-6 text-[#a03f28] dark:text-[#c0573e]">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all active:scale-95" data-icon="search">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all active:scale-95" data-icon="person">person</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80 transition-all active:scale-95" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section: The Narrative Anchor -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-12 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 w-full gap-8 items-center">
+<div class="md:col-span-5 z-10 space-y-8">
+<span class="text-tertiary font-sans uppercase tracking-[0.3em] text-xs font-semibold block">Est. 2024</span>
+<h1 class="text-6xl md:text-8xl font-serif leading-[1.1] text-on-background">The Art of <br/><i class="font-normal italic">Presence</i></h1>
+<p class="text-lg text-on-surface-variant max-w-md leading-relaxed">Evorae is more than a brand; it is a philosophy of living beautifully. We curate pieces that bridge the gap between ancient heritage and the modern silhouette.</p>
+</div>
+<div class="md:col-span-7 relative h-[716px] md:h-[819px]">
+<div class="absolute inset-0 bg-surface-container-low rounded-xl overflow-hidden -rotate-2 transform translate-x-4 translate-y-4"></div>
+<img class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-sm z-0 rotate-0" data-alt="Soft focused lifestyle shot of a woman in linen clothing standing in a sun-drenched, minimalist architectural courtyard with warm beige tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsYzCu-zZs9RAvCywHH3UGqErCjUoIvw8CxhJs-uj0pGX60vLB4BBAmgtsSfeMHHyxj7verxd417Z0Vw5dDMKb5kPlBxfEi6BWuwVThA13JsuIHAkqFtwI6e3JLgdqJ38jND3kztyJN90NSQOI_yrgCDyMM6fVl83IZZ_VmR3tgqgFQskc2oRZ6E6q6KJ1XOMS2rnowdlGqb0NKZM5m7uo1LPoiQeRMI2EQynLcOxWx9z8l8GDs8hIDMZmcm5cPU0gS8CTGGdtzyGq"/>
+</div>
+</div>
+</section>
+<!-- The Meaning of Evorae -->
+<section class="py-32 px-12 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto space-y-12">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="text-4xl md:text-5xl font-serif text-on-background leading-snug italic">"Evorae" represents the whisper of an evolving morning — a promise of radiance that begins from within.</h2>
+<div class="w-16 h-px bg-outline-variant/30"></div>
+<p class="text-on-surface-variant leading-loose font-light">
+                        Derived from the Latin roots of 'Era' and 'Aurora', our name signifies a new dawn in artisanal fashion. It reflects our belief that luxury should not be loud; it should be felt in the softness of hand-loomed silk and seen in the intentional asymmetry of a hand-set stone.
+                    </p>
+</div>
+</div>
+</section>
+<!-- The Origin Story: Mother & Daughter -->
+<section class="py-40 px-12 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1 relative">
+<img class="w-full h-[600px] object-cover rounded-xl shadow-sm" data-alt="Close-up of two pairs of hands, one older and one younger, gently holding a piece of delicate embroidered textile in a soft sunlit studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe8_yON_vLPFk18Ht96p47DRFinZo4MGkg3VRwhffeHO6hu0JLcWlbCzQNjbUa9CWRBOQ37xLZOy-ax2ce_TZZD8DLCTtteBDlSrvN96dNKOXi-CBAzoJYmYAZZatHixN9OEX7vXYlxBIyZaPP7NaBEVJ6nFsV5phYQBSCiXB6QdKcq5YyqabP6abdRt3xsEJli7lSkP4bwLMhwTsnu37eLRJQPc0A3opA759OTwrS0-_rEc229chpKtc595C35jiuaz7-d6BTPi9a"/>
+<div class="absolute -bottom-8 -right-8 p-10 bg-primary-container text-on-primary-container rounded-xl max-w-xs shadow-xl hidden md:block">
+<p class="font-serif italic text-xl">"Heritage is not what we leave behind, but what we carry forward."</p>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<h3 class="text-tertiary font-sans uppercase tracking-[0.2em] text-xs font-bold">The Origin</h3>
+<h2 class="text-5xl font-serif text-on-background">A Dialogue Across <br/>Generations</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        Evorae was born in a sun-drenched atelier in Jaipur, sparked by a conversation between a mother, a lifelong textile historian, and her daughter, a modern designer. 
+                    </p>
+<p class="text-on-surface-variant leading-relaxed">
+                        They sought to reconcile the timeless techniques of their ancestors with the fast-paced, global lifestyle of the contemporary woman. Every stitch in our collection is a tribute to this lineage—a bridge between the heritage of the past and the ambition of the future.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Evolving Radiance Concept: Bento Grid -->
+<section class="py-32 px-12 bg-white">
+<div class="max-w-screen-2xl mx-auto">
+<div class="mb-20 text-center">
+<h2 class="text-5xl font-serif mb-6 italic">Evolving Radiance</h2>
+<p class="text-secondary tracking-widest uppercase text-xs font-bold">The Three Pillars of our Craft</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Pillar 1: Heritage -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-12 flex flex-col justify-between group overflow-hidden relative">
+<div class="z-10 max-w-md">
+<h4 class="text-3xl font-serif mb-4">Ancestral Heritage</h4>
+<p class="text-on-surface-variant leading-relaxed">We work exclusively with artisan clusters across India, preserving weaving and embroidery techniques that have been passed down through centuries. Our goal is to ensure these hands never stop creating.</p>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<img class="w-full h-full object-cover grayscale" data-alt="Macro detail of intricate hand-woven metallic gold threads on a crimson fabric base with selective focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUSNHYl6nLO9S5R09_JmHpUXn7SQHSXeSgB_f_CNOS4XeCzSU1-CjhLhH4Ij1xyTKgi2jT0HrmsUwDCLFn2Jrqxx8PDbB-q5bxiSXtL8_t5rmZT7Lrh4JKxmngKbVitiKWmGaEOEZGxPxGwqprMdJYvPFTz4bktLgLQ8DHs1E7m7WwRcVXJ5bZhRMDU9hAhshy-8RFesqnOhnwcX22tYWhQ1xAi4rtU1rZDJlcmhcinODMJNr1tpMQhZhmw9pBIZSFllMqz565jx7n"/>
+</div>
+<span class="text-7xl font-serif text-outline-variant opacity-20 select-none">01</span>
+</div>
+<!-- Pillar 2: Modernity -->
+<div class="md:col-span-4 bg-secondary-container/30 rounded-xl p-12 flex flex-col justify-end relative overflow-hidden">
+<div class="z-10">
+<span class="text-7xl font-serif text-on-secondary-container opacity-20 select-none block mb-4">02</span>
+<h4 class="text-3xl font-serif mb-4 text-on-secondary-container">Quiet Modernity</h4>
+<p class="text-on-secondary-container/80 leading-relaxed text-sm">Clean lines and versatile silhouettes designed for the global citizen. Pieces that transition from morning meditation to evening galas with ease.</p>
+</div>
+</div>
+<!-- Pillar 3: Craftsmanship -->
+<div class="md:col-span-4 bg-tertiary-fixed rounded-xl p-12 flex flex-col items-center justify-center text-center space-y-6">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-5xl" data-icon="eco">eco</span>
+<h4 class="text-3xl font-serif text-on-tertiary-fixed">Conscious Making</h4>
+<p class="text-on-tertiary-fixed/70 text-sm leading-relaxed">Small batches. Natural dyes. Fair wages. We believe true luxury is knowing exactly where your garment came from.</p>
+<span class="text-5xl font-serif text-on-tertiary-fixed opacity-10">03</span>
+</div>
+<!-- Pillar 4: The Vibe -->
+<div class="md:col-span-8 bg-surface-container-highest rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Wide shot of a modern, airy interior with organic ceramics and neutral linen drapes catching the afternoon light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdwv3uQKTcOzekFX4V8BbHNxj5DHX8Lb0xh2pv80xEQLzfRsN8sUwX63qechYvX903FEh2n3zfQETUJEYjAL-fAXPVHlKvu3jDmyNUVIq6lfXLmbR3D3MYvdwKoyx5Scb0Y_60uztChKZTUI0Casx4eO7yQoIpftXktO204qZR7pYr9GqBobjyWHY8MoNmH4elaxoKtReuyJLSVMs2ZjjSCieB235_HieE1TjXPjsM9bJDXQMKJaTQ1q1n-4LWUVIj1NliZcBh3ILD"/>
+<div class="absolute inset-0 bg-black/10 flex items-end p-12">
+<p class="text-white font-serif text-2xl italic">The Evorae Atelier</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage Quote -->
+<section class="py-40 flex flex-col items-center justify-center px-12 text-center">
+<span class="material-symbols-outlined text-tertiary text-2xl mb-4" data-icon="park">park</span>
+<h2 class="text-4xl md:text-6xl font-serif text-secondary leading-tight max-w-4xl italic">
+                "We don't just sell apparel; we invite you to be part of a curated legacy that celebrates the hand, the heart, and the slow rhythm of the sun."
+            </h2>
+<div class="mt-12">
+<p class="font-sans font-bold text-on-background tracking-widest text-xs uppercase">— The Founders of Evorae</p>
+</div>
+</section>
+<!-- Editorial Story CTA -->
+<section class="mb-20 px-12 max-w-screen-2xl mx-auto">
+<div class="relative rounded-xl overflow-hidden bg-surface-container p-20 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl space-y-6">
+<h3 class="text-4xl font-serif">Begin Your Journey</h3>
+<p class="text-on-surface-variant text-lg">Discover the curated collections that bring our philosophy to life.</p>
+<div class="pt-4">
+<a class="inline-flex items-center space-x-4 bg-primary text-on-primary px-8 py-4 rounded-xl hover:bg-primary-container transition-all hover:-translate-y-1" href="#">
+<span class="font-sans font-bold uppercase tracking-widest text-xs">Explore the Collection</span>
+<span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full md:w-1/3">
+<img class="rounded-lg aspect-square object-cover shadow-sm" data-alt="Close up of a handcrafted brass necklace resting on a beige linen surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs2kxpZMAEu5s9m4aYX0ARzhmPBfu7f9bvgNaVYg52IjE2VsxTuLExm80AEgPR3V1BWti-jxkX3IP_n9Zggw3UykltnjeJihB6IX9h02FHuvDPKvUZHgAvsj9Efv2t5vGycrfakoi8D1DsyXBaXo7Rlp3p9zfsjvA2DPHXQaQLXC6BOCF6DFlfSVCJtiuwEG7InZr5hw0lXmsGgAwrVehxkYB981B7uGGRUOgMWlcvyBGbWLpZkTnlbLVHIqn25PiKJYHnl8K2w70Z"/>
+<img class="rounded-lg aspect-square object-cover shadow-sm mt-8" data-alt="Hanging linen garments in earth tones in a minimalist boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-tO_hkg24DVSlEptk5nOqMc2F_bD9tWF_JGwoVA2cDL9Md7W3YLXMVQkDBUoSm9l0J-K97jtCSpzbb2bRRkKCfinzusDtA8Ge6CU-pU3VZF7HAFUpMjb821wnrS9TxRnpsvWnOkcOO1_M2GtzsrkyIp5ywzHydVLxUi_Pw_f-9H4iOsL1XT7F_rhorqrgV_7lK_NbE_O1uOpg7R5X68nDIqzg9ko4aGuKBGgrQMtpVNFXCyMNrMdOfZJ4dQINfxGpjDYhqefnBBxM"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fdf9f4] dark:bg-[#1c1c19] pt-20 pb-10 border-t border-[#outline_variant]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1 space-y-6">
+<div class="text-2xl font-serif italic text-[#53643a]">Evorae</div>
+<p class="text-sm font-body text-on-surface-variant leading-relaxed">
+                    Designed for the Modern Curator. <br/>
+                    Authentically crafted, eternally resonant.
+                </p>
+</div>
+<div class="space-y-4">
+<h5 class="font-serif text-lg text-on-background">Customer Care</h5>
+<ul class="space-y-3">
+<li><a class="text-sm font-body text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">FAQ</a></li>
+<li><a class="text-sm font-body text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Shipping</a></li>
+<li><a class="text-sm font-body text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Returns</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-serif text-lg text-on-background">Journal</h5>
+<ul class="space-y-3">
+<li><a class="text-sm font-body text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Instagram</a></li>
+<li><a class="text-sm font-body text-[#1c1c19] dark:text-[#fdf9f4] opacity-60 hover:opacity-100 hover:text-[#7b5800] transition-colors" href="#">Pinterest</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-serif text-lg text-on-background">The Atelier</h5>
+<p class="text-sm text-on-surface-variant italic">Sign up for rare updates and early access to heritage drops.</p>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-2 focus:ring-0 focus:border-primary text-sm font-body" placeholder="Your email address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="east">east</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center px-12 border-t border-outline-variant/10 pt-10">
+<p class="text-xs font-body tracking-widest text-on-surface-variant/50">© 2024 Evorae. Crafted for the Modern Curator.</p>
+</div>
+</footer>
+</body></html>
