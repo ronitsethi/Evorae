@@ -18,10 +18,14 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const navBg = isScrolled ? 'glass-nav text-on-surface shadow-sm' : 'bg-transparent text-on-surface';
+  const navBg = isScrolled ? 'glass-nav text-on-surface shadow-sm bg-surface/95 backdrop-blur' : 'bg-transparent text-on-surface';
 
-  // For the homepage hero section, we might want the text to be white when NOT scrolled.
-  // But since the hero is a light image in Evorae, text-current is fine.
+  const CustomLink = ({ to, children, isActive }: { to: string, children: React.ReactNode, isActive: boolean }) => (
+    <Link to={to} className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${isActive ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
+      {children}
+      <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+    </Link>
+  );
 
   return (
     <>
@@ -31,47 +35,32 @@ const Navbar = () => {
           {/* Left: Mobile Trigger & Desktop Links */}
           <div className="flex items-center justify-start">
             <button 
-              className="md:hidden text-current hover:opacity-80 transition-all z-50"
+              className="md:hidden text-current hover:opacity-80 transition-all z-50 mr-4"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="material-symbols-outlined text-[28px] font-light">
-                {isMobileMenuOpen ? 'close' : 'menu_open'}
+                {isMobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
             <div className="hidden md:flex gap-8 lg:gap-10 items-center">
-              <Link to="/" className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname === '/' ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-                New In
-                <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
-              <Link to="/collection" className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname === '/collection' && !location.search ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-                Apparel
-                <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${location.pathname === '/collection' && !location.search ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
-              <Link to="/collection?category=Jewellery" className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${location.search.includes('Jewellery') ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-                Jewellery
-                <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${location.search.includes('Jewellery') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
+              <CustomLink to="/" isActive={location.pathname === '/'}>New In</CustomLink>
+              <CustomLink to="/collection" isActive={location.pathname === '/collection' && !location.search}>Apparel</CustomLink>
+              <CustomLink to="/collection?category=Jewellery" isActive={location.search.includes('Jewellery')}>Jewellery</CustomLink>
             </div>
           </div>
 
           {/* Center: Logo */}
           <div className="flex justify-center flex-1">
-            <Link to="/" className="text-3xl md:text-[40px] font-headline tracking-tighter text-current hover:opacity-80 transition-opacity">
-              Evorae
+            <Link to="/" className="flex items-center justify-center transition-opacity hover:opacity-80">
+              <img src="/logo.png" alt="Evorae Brand Logo" className="h-[26px] md:h-[43px] w-auto object-contain" />
             </Link>
           </div>
 
           {/* Right: Actions */}
           <div className="flex items-center space-x-5 md:space-x-6 justify-end">
              <div className="hidden lg:flex gap-8 lg:gap-10 items-center mr-6">
-               <Link to="/summer-breath" className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname === '/summer-breath' ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-                Summer Breath
-                <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${location.pathname === '/summer-breath' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
-              <Link to="/about" className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${location.pathname === '/about' ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-                Story
-                <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-              </Link>
+                <CustomLink to="/summer-breath" isActive={location.pathname === '/summer-breath'}>Summer Breath</CustomLink>
+                <CustomLink to="/about" isActive={location.pathname === '/about'}>Story</CustomLink>
             </div>
             <button className="hover:opacity-70 transition-opacity text-current flex items-center">
               <span className="material-symbols-outlined font-light text-[24px]">search</span>
@@ -94,11 +83,11 @@ const Navbar = () => {
         <div className="absolute inset-0 bg-surface/95 backdrop-blur-xl"></div>
         <div className="relative h-full flex flex-col justify-center px-12">
           <div className="flex flex-col gap-8">
-            <Link to="/" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Home</Link>
+            <Link to="/" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">New In</Link>
             <Link to="/collection" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Apparel</Link>
             <Link to="/collection?category=Jewellery" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Jewellery</Link>
             <Link to="/summer-breath" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Summer Breath</Link>
-            <Link to="/about" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Our Story</Link>
+            <Link to="/about" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Story</Link>
           </div>
           
           <div className="absolute bottom-12 left-12 flex gap-6 text-on-surface-variant">
