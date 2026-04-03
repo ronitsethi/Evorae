@@ -120,7 +120,7 @@ export async function fetchCollectionByHandle(handle: string) {
   const query = `
     query getCollection($handle: String!) {
       collection(handle: $handle) {
-        products(first: 20) {
+        products(first: 50) {
           edges {
             node {
               id
