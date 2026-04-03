@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* Center: Logo */}
           <div className="flex justify-center flex-1">
             <Link to="/" className="flex items-center justify-center transition-opacity hover:opacity-80">
-              <img src="/logo.png" alt="Evorae Brand Logo" className="h-[26px] md:h-[43px] w-auto object-contain" />
+              <img src="/logo.png" alt="Evorae Brand Logo" className="h-[34px] md:h-[56px] w-auto object-contain" />
             </Link>
           </div>
 
