@@ -116,6 +116,57 @@ export async function fetchProducts() {
   });
 }
 
+export async function fetchCollectionByHandle(handle: string) {
+  const query = `
+    query getCollection($handle: String!) {
+      collection(handle: $handle) {
+        products(first: 20) {
+          edges {
+            node {
+              id
+              title
+              description
+              productType
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables: { handle } });
+  
+  if (!response.body.data.collection) {
+    return [];
+  }
+  
+  const shopifyProducts = response.body.data.collection.products.edges;
+
+  return shopifyProducts.map(({ node }: any) => {
+    return {
+      id: node.id.split('/').pop(),
+      name: node.title,
+      price: parseFloat(node.priceRange.minVariantPrice.amount),
+      category: node.productType || 'Apparel',
+      images: node.images.edges.map((img: any) => img.node.url),
+      description: node.description,
+    };
+  });
+}
+
 export async function fetchProductById(id: string) {
   const fullId = id.includes('gid://') ? id : `gid://shopify/Product/${id}`;
   const query = `

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchProducts, type Product } from '../lib/shopify';
+import { fetchCollectionByHandle, type Product } from '../lib/shopify';
 import ProductCard from '../components/ProductCard';
 
 const Collection = () => {
@@ -13,8 +13,10 @@ const Collection = () => {
 
   useEffect(() => {
     async function load() {
+        setLoading(true);
         try {
-            const data = await fetchProducts();
+            const handle = categoryFilter === 'Jewellery' ? 'the-jewellery-edit' : 'the-apparel-edit';
+            const data = await fetchCollectionByHandle(handle);
             setProducts(data);
         } catch (e) {
             console.error("Failed to load products", e);
@@ -23,13 +25,7 @@ const Collection = () => {
         }
     }
     load();
-  }, []);
-
-  const displayedProducts = categoryFilter 
-    ? products.filter(p => p.category === categoryFilter)
-    : products;
-
-  const regularProducts = displayedProducts;
+  }, [categoryFilter]);
 
   if (loading) {
     return (
@@ -85,7 +81,7 @@ const Collection = () => {
             </div>
           </div>
           <div className="flex items-center space-x-6">
-            <span className="text-xs font-label text-outline uppercase tracking-[0.2em] hidden sm:inline-block font-semibold">{displayedProducts.length} Pieces</span>
+            <span className="text-xs font-label text-outline uppercase tracking-[0.2em] hidden sm:inline-block font-semibold">{products.length} Pieces</span>
             <div className="h-4 w-[1px] bg-outline-variant/30 hidden sm:block"></div>
             <select className="bg-transparent border-none text-[11px] font-semibold uppercase tracking-[0.2em] text-on-surface focus:ring-0 cursor-pointer outline-none hover:text-primary transition-colors appearance-none pr-4">
               <option>Sort: Curated</option>
@@ -99,16 +95,16 @@ const Collection = () => {
 
       {/* Product Grid */}
       <section className="px-6 md:px-12 py-24 md:py-32 max-w-screen-2xl mx-auto">
-        {displayedProducts.length > 0 ? (
+        {products.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-20">
-            {regularProducts.map((product, index) => (
+            {products.map((product, index) => (
               <div key={product.id} className={`${index % 2 === 1 ? 'md:mt-16' : ''}`}>
                  <ProductCard product={product} />
               </div>
             ))}
 
             {/* Heritage Quote Interstitial */}
-            {regularProducts.length >= 3 && (
+            {products.length >= 3 && (
               <div className="col-span-full py-32 md:py-48 flex flex-col items-center text-center max-w-3xl mx-auto px-4">
                 <span className="material-symbols-outlined text-secondary mb-8 text-4xl font-light">eco</span>
                 <h2 className="text-4xl md:text-6xl font-headline italic text-on-surface leading-[1.15] tracking-tight">
