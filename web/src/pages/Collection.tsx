@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { products } from '../data/products';
+import { fetchProducts, type Product } from '../lib/shopify';
 import ProductCard from '../components/ProductCard';
 
 const Collection = () => {
@@ -7,11 +8,36 @@ const Collection = () => {
   const queryParams = new URLSearchParams(search);
   const categoryFilter = queryParams.get('category');
 
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+        try {
+            const data = await fetchProducts();
+            setProducts(data);
+        } catch (e) {
+            console.error("Failed to load products", e);
+        } finally {
+            setLoading(false);
+        }
+    }
+    load();
+  }, []);
+
   const displayedProducts = categoryFilter 
     ? products.filter(p => p.category === categoryFilter)
     : products;
 
   const regularProducts = displayedProducts;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface flex items-center justify-center">
+        <span className="font-label text-outline uppercase tracking-[0.2em] animate-pulse">Loading Archive...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="collection-page min-h-screen bg-surface">

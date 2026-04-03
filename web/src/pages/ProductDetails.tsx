@@ -1,11 +1,35 @@
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../data/products';
-import { useState } from 'react';
+import { fetchProductById, type Product } from '../lib/shopify';
+import { useState, useEffect } from 'react';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const product = products.find(p => p.id === id);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadProduct() {
+      if (!id) return;
+      try {
+        const data = await fetchProductById(id);
+        setProduct(data);
+      } catch (e) {
+        console.error("Failed to load product", e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadProduct();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-6 py-40 text-center min-h-screen bg-surface flex items-center justify-center">
+        <span className="font-label text-outline uppercase tracking-[0.2em] animate-pulse">Loading Piece...</span>
+      </div>
+    );
+  }
 
   if (!product) {
     return (
