@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { itemCount, openCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,9 +70,16 @@ const Navbar = () => {
             <button className="hidden md:flex hover:opacity-70 transition-opacity text-current items-center">
               <span className="material-symbols-outlined font-light text-[24px]">person</span>
             </button>
-            <button className="hover:opacity-70 transition-opacity text-current relative flex items-center group">
+            <button 
+              onClick={openCart} 
+              className="hover:opacity-70 transition-opacity text-current relative flex items-center group"
+            >
               <span className="material-symbols-outlined font-light text-[24px]">shopping_bag</span>
-              <span className="absolute -top-1.5 -right-2 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">0</span>
+              {itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-2 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  {itemCount}
+                </span>
+              )}
             </button>
           </div>
         </div>

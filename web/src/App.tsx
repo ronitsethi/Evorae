@@ -7,6 +7,8 @@ import Collection from './pages/Collection';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Campaign from './pages/Campaign';
+import { CartProvider } from './context/CartContext';
+import CartDrawer from './components/CartDrawer';
 import './App.css';
 
 function ScrollToTop() {
@@ -23,19 +25,22 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="app-container">
-        <Navbar />
-        <main className="app-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/collection" element={<Collection />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/summer-breath" element={<Campaign />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="app-container">
+          <Navbar />
+          <CartDrawer />
+          <main className="app-main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/collection" element={<Collection />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/summer-breath" element={<Campaign />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </CartProvider>
     </Router>
   );
 }

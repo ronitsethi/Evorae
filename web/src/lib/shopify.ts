@@ -1,3 +1,9 @@
+export interface ProductVariant {
+  id: string;
+  title: string;
+  availableForSale: boolean;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -5,6 +11,7 @@ export interface Product {
   category: string;
   images: string[];
   description: string;
+  variants?: ProductVariant[];
 }
 
 export async function shopifyFetch<T>({
@@ -131,6 +138,15 @@ export async function fetchProductById(id: string) {
             }
           }
         }
+        variants(first: 10) {
+          edges {
+            node {
+              id
+              title
+              availableForSale
+            }
+          }
+        }
       }
     }
   `;
@@ -147,5 +163,138 @@ export async function fetchProductById(id: string) {
     category: node.productType || 'Apparel',
     images: node.images.edges.map((img: any) => img.node.url),
     description: node.description,
+    variants: node.variants?.edges.map((edge: any) => ({
+      id: edge.node.id,
+      title: edge.node.title,
+      availableForSale: edge.node.availableForSale,
+    })) || [],
   };
+}
+
+// ==== Cart Types & Queries ====
+
+export interface CartLine {
+  id: string;
+  quantity: number;
+  merchandise: {
+    id: string;
+    title: string;
+    product: { title: string };
+    image: { url: string };
+    price: { amount: string };
+  };
+}
+
+export interface Cart {
+  id: string;
+  checkoutUrl: string;
+  cost: {
+    subtotalAmount: { amount: string; currencyCode: string };
+  };
+  lines: {
+    edges: { node: CartLine }[];
+  };
+}
+
+const CART_FRAGMENT = `
+  fragment CartFragment on Cart {
+    id
+    checkoutUrl
+    cost {
+      subtotalAmount {
+        amount
+        currencyCode
+      }
+    }
+    lines(first: 100) {
+      edges {
+        node {
+          id
+          quantity
+          merchandise {
+            ... on ProductVariant {
+              id
+              title
+              product {
+                title
+              }
+              image {
+                url
+              }
+              price {
+                amount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export async function createCart(variantId: string, quantity: number): Promise<Cart> {
+  const query = `
+    mutation createCart($cartInput: CartInput) {
+      cartCreate(input: $cartInput) {
+        cart {
+          ...CartFragment
+        }
+      }
+    }
+    ${CART_FRAGMENT}
+  `;
+
+  const variables = {
+    cartInput: {
+      lines: [
+        {
+          merchandiseId: variantId,
+          quantity,
+        },
+      ],
+    },
+  };
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables });
+  return response.body.data.cartCreate.cart;
+}
+
+export async function addToCart(cartId: string, variantId: string, quantity: number): Promise<Cart> {
+  const query = `
+    mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
+      cartLinesAdd(cartId: $cartId, lines: $lines) {
+        cart {
+          ...CartFragment
+        }
+      }
+    }
+    ${CART_FRAGMENT}
+  `;
+
+  const variables = {
+    cartId,
+    lines: [
+      {
+        merchandiseId: variantId,
+        quantity,
+      },
+    ],
+  };
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables });
+  return response.body.data.cartLinesAdd.cart;
+}
+
+export async function getCart(cartId: string): Promise<Cart | null> {
+  const query = `
+    query getCart($cartId: ID!) {
+      cart(id: $cartId) {
+        ...CartFragment
+      }
+    }
+    ${CART_FRAGMENT}
+  `;
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables: { cartId } });
+  return response.body.data.cart || null;
 }

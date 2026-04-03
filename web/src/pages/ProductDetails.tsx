@@ -1,12 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
 import { fetchProductById, type Product } from '../lib/shopify';
 import { useState, useEffect } from 'react';
+import { useCart } from '../context/CartContext';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const { addItem, isLoading: isAdding } = useCart();
 
   useEffect(() => {
     async function loadProduct() {
@@ -44,6 +46,28 @@ const ProductDetails = () => {
 
   const sizes = product.category === 'Apparel' ? ['XS', 'S', 'M', 'L', 'XL'] : null;
 
+  const handleAddToTote = async () => {
+    if (!product?.variants?.length) return;
+
+    let variantId = product.variants[0].id;
+
+    if (sizes) {
+      if (!selectedSize) {
+        alert('Please select a size first.');
+        return;
+      }
+      // Attempt to match size with Shopify variant title
+      const matchedVariant = product.variants.find(v => v.title.toLowerCase() === selectedSize.toLowerCase());
+      if (matchedVariant) {
+        variantId = matchedVariant.id;
+      } else {
+        alert('This size is currently unavailable.');
+        return;
+      }
+    }
+
+    await addItem(variantId, 1);
+  };
 
   return (
     <div className="min-h-screen pt-32 pb-32 max-w-screen-2xl mx-auto px-6 md:px-12 bg-surface">
@@ -95,27 +119,38 @@ const ProductDetails = () => {
                   <button className="text-outline hover:text-primary transition-colors underline decoration-1 underline-offset-4">Size Guide</button>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  {sizes.map((size) => (
-                    <button 
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`h-12 w-12 flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
-                        selectedSize === size 
-                          ? 'border border-primary text-primary bg-primary/5' 
-                          : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary relative group'
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
+                  {sizes.map((size) => {
+                    const isAvailable = product.variants?.find(v => v.title.toLowerCase() === size.toLowerCase())?.availableForSale;
+                    return (
+                      <button 
+                        key={size}
+                        onClick={() => isAvailable ? setSelectedSize(size) : null}
+                        disabled={!isAvailable}
+                        className={`h-12 w-12 flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
+                          !isAvailable ? 'opacity-30 cursor-not-allowed border-dashed' :
+                          selectedSize === size 
+                            ? 'border border-primary text-primary bg-primary/5' 
+                            : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary relative group'
+                        }`}
+                      >
+                        {size}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
 
             {/* Actions */}
             <div className="flex flex-col gap-4 pt-4">
-              <button className="w-full py-5 bg-on-surface text-surface text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-colors flex items-center justify-center gap-3">
-                <span>Add to Tote</span>
+              <button 
+                onClick={handleAddToTote}
+                disabled={isAdding}
+                className={`w-full py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-3 ${
+                  isAdding ? 'bg-surface-container-low text-on-surface-variant cursor-wait' : 'bg-on-surface text-surface hover:bg-primary'
+                }`}
+              >
+                <span>{isAdding ? 'Adding...' : 'Add to Tote'}</span>
                 <span className="material-symbols-outlined text-[16px] font-light">shopping_bag</span>
               </button>
             </div>
