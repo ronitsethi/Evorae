@@ -70,7 +70,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-32 max-w-screen-2xl mx-auto px-6 md:px-12 bg-surface">
+    <div className="min-h-screen pt-28 lg:pt-32 pb-24 md:pb-32 max-w-screen-2xl mx-auto px-6 md:px-12 bg-surface">
       {/* Product Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         
@@ -95,7 +95,7 @@ const ProductDetails = () => {
                 {product.category}
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-headline leading-[1.1] text-on-surface tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline leading-[1.1] text-on-surface tracking-tight">
               {product.name}
             </h1>
             <div className="flex items-baseline gap-4">
@@ -173,7 +173,7 @@ const ProductDetails = () => {
       <section className="mt-32 md:mt-48 pt-24 hairline-t">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           <div className="space-y-8 md:pr-12">
-            <h2 className="text-4xl md:text-5xl font-headline text-on-surface tracking-tight">The Artisan's Canvas</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-headline text-on-surface tracking-tight">The Artisan's Canvas</h2>
             <p className="text-on-surface-variant leading-[1.8] text-lg font-light">
               {product.category === 'Apparel' 
                 ? "Our cotton is sourced from the rain-fed fields of Central India, spun by hand to preserve its natural strength and softness. The irregular weave is the signature of the handloom, a breathable skin that tells a story of comfort across generations."

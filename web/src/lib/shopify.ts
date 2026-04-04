@@ -349,3 +349,50 @@ export async function getCart(cartId: string): Promise<Cart | null> {
   const response = await shopifyFetch<{ data: any }>({ query, variables: { cartId } });
   return response.body.data.cart || null;
 }
+
+export async function updateCartItem(cartId: string, lineId: string, quantity: number): Promise<Cart> {
+  const query = `
+    mutation updateCartLines($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+      cartLinesUpdate(cartId: $cartId, lines: $lines) {
+        cart {
+          ...CartFragment
+        }
+      }
+    }
+    ${CART_FRAGMENT}
+  `;
+
+  const variables = {
+    cartId,
+    lines: [
+      {
+        id: lineId,
+        quantity,
+      },
+    ],
+  };
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables });
+  return response.body.data.cartLinesUpdate.cart;
+}
+
+export async function removeFromCart(cartId: string, lineId: string): Promise<Cart> {
+  const query = `
+    mutation removeCartLines($cartId: ID!, $lineIds: [ID!]!) {
+      cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+        cart {
+          ...CartFragment
+        }
+      }
+    }
+    ${CART_FRAGMENT}
+  `;
+
+  const variables = {
+    cartId,
+    lineIds: [lineId],
+  };
+
+  const response = await shopifyFetch<{ data: any }>({ query, variables });
+  return response.body.data.cartLinesRemove.cart;
+}

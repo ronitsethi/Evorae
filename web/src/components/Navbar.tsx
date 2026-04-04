@@ -91,12 +91,12 @@ const Navbar = () => {
       >
         <div className="absolute inset-0 bg-surface/95 backdrop-blur-xl"></div>
         <div className="relative h-full flex flex-col justify-center px-12">
-          <div className="flex flex-col gap-8">
-            <Link to="/" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">New In</Link>
-            <Link to="/collection" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Apparel</Link>
-            <Link to="/collection?category=Jewellery" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Jewellery</Link>
-            <Link to="/summer-breath" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Summer Breath</Link>
-            <Link to="/about" className="text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Story</Link>
+          <div className="flex flex-col gap-6 md:gap-8">
+            <Link to="/" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">New In</Link>
+            <Link to="/collection" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Apparel</Link>
+            <Link to="/collection?category=Jewellery" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Jewellery</Link>
+            <Link to="/summer-breath" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Summer Breath</Link>
+            <Link to="/about" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Story</Link>
           </div>
           
           <div className="absolute bottom-12 left-12 flex gap-6 text-on-surface-variant">

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import { createCart, addToCart, getCart, type Cart } from '../lib/shopify';
+import { createCart, addToCart, getCart, updateCartItem, removeFromCart, type Cart } from '../lib/shopify';
 
 interface CartContextType {
   cart: Cart | null;
@@ -9,6 +9,8 @@ interface CartContextType {
   openCart: () => void;
   closeCart: () => void;
   addItem: (variantId: string, quantity: number) => Promise<void>;
+  updateItem: (lineId: string, quantity: number) => Promise<void>;
+  removeItem: (lineId: string) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -65,10 +67,38 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const updateItem = async (lineId: string, quantity: number) => {
+    if (!cart?.id) return;
+    setIsLoading(true);
+    try {
+      const updatedCart = await updateCartItem(cart.id, lineId, quantity);
+      setCart(updatedCart);
+    } catch (error) {
+      console.error('Error updating cart item:', error);
+      alert('Failed to update item quantity.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const removeItem = async (lineId: string) => {
+    if (!cart?.id) return;
+    setIsLoading(true);
+    try {
+      const updatedCart = await removeFromCart(cart.id, lineId);
+      setCart(updatedCart);
+    } catch (error) {
+      console.error('Error removing cart item:', error);
+      alert('Failed to remove item.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const itemCount = cart?.lines.edges.reduce((total, edge) => total + edge.node.quantity, 0) || 0;
 
   return (
-    <CartContext.Provider value={{ cart, isCartOpen, itemCount, openCart, closeCart, addItem, isLoading }}>
+    <CartContext.Provider value={{ cart, isCartOpen, itemCount, openCart, closeCart, addItem, updateItem, removeItem, isLoading }}>
       {children}
     </CartContext.Provider>
   );

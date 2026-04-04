@@ -43,11 +43,11 @@ const Collection = () => {
             <span className="uppercase tracking-[0.3em] font-label text-[10px] font-bold text-outline mb-6 block">
               The Archive
             </span>
-            <h1 className="text-6xl md:text-8xl font-headline text-on-surface mb-8 leading-[0.9] tracking-tighter">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-headline text-on-surface mb-8 leading-[0.9] tracking-tighter">
               {categoryFilter ? categoryFilter : 'The Apparel'} <br/>
               <span className="italic font-normal text-secondary">Edit.</span>
             </h1>
-            <p className="text-on-surface-variant font-body text-lg md:text-xl leading-relaxed font-light">
+            <p className="text-on-surface-variant font-body text-base md:text-lg lg:text-xl leading-relaxed font-light">
               {categoryFilter === 'Jewellery' 
                 ? "Delicate motifs and organic shapes, handcrafted by artisans to complement your everyday wardrobe."
                 : "Crafted from the finest organic cotton, our apparel collection honors the ancient tradition of handblock printing. Each piece is a conversation between the artisan's hand and the sun-bleached earth."
@@ -107,7 +107,7 @@ const Collection = () => {
             {products.length >= 3 && (
               <div className="col-span-full py-32 md:py-48 flex flex-col items-center text-center max-w-3xl mx-auto px-4">
                 <span className="material-symbols-outlined text-secondary mb-8 text-4xl font-light">eco</span>
-                <h2 className="text-4xl md:text-6xl font-headline italic text-on-surface leading-[1.15] tracking-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-headline italic text-on-surface leading-[1.15] tracking-tight">
                   "The beauty of handblock printing lies in its gentle imperfections—proof of the human heart behind the craft."
                 </h2>
                 <div className="mt-12 w-px h-16 bg-outline-variant/30"></div>
