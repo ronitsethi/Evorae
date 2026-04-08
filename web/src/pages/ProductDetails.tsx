@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
   const { addItem, isLoading: isAdding } = useCart();
 
   useEffect(() => {
@@ -44,26 +44,26 @@ const ProductDetails = () => {
     );
   }
 
-  const sizes = product.category === 'Apparel' ? ['XS', 'S', 'M', 'L', 'XL'] : null;
+  // Filter out the "Default Title" placeholder Shopify adds for products with no real variants
+  const selectableVariants = (product.variants || []).filter(v => v.title !== 'Default Title');
+  const hasVariants = selectableVariants.length > 0;
+  console.log('[Evorae] product.variants:', product.variants);
+  console.log('[Evorae] selectableVariants:', selectableVariants);
 
   const handleAddToTote = async () => {
     if (!product?.variants?.length) return;
 
-    let variantId = product.variants[0].id;
+    let variantId: string;
 
-    if (sizes) {
-      if (!selectedSize) {
+    if (hasVariants) {
+      if (!selectedVariantId) {
         alert('Please select a size first.');
         return;
       }
-      // Attempt to match size with Shopify variant title
-      const matchedVariant = product.variants.find(v => v.title.toLowerCase() === selectedSize.toLowerCase());
-      if (matchedVariant) {
-        variantId = matchedVariant.id;
-      } else {
-        alert('This size is currently unavailable.');
-        return;
-      }
+      variantId = selectedVariantId;
+    } else {
+      // Single default variant — add directly
+      variantId = product.variants[0].id;
     }
 
     await addItem(variantId, 1);
@@ -111,32 +111,30 @@ const ProductDetails = () => {
 
             <div className="h-[1px] w-full bg-outline-variant/30"></div>
 
-            {/* Size Selection */}
-            {sizes && (
+            {/* Size / Variant Selection */}
+            {hasVariants && (
               <div className="space-y-6">
                 <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface">
                   <span>Size</span>
                   <button className="text-outline hover:text-primary transition-colors underline decoration-1 underline-offset-4">Size Guide</button>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  {sizes.map((size) => {
-                    const isAvailable = product.variants?.find(v => v.title.toLowerCase() === size.toLowerCase())?.availableForSale;
-                    return (
-                      <button 
-                        key={size}
-                        onClick={() => isAvailable ? setSelectedSize(size) : null}
-                        disabled={!isAvailable}
-                        className={`h-12 w-12 flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
-                          !isAvailable ? 'opacity-30 cursor-not-allowed border-dashed' :
-                          selectedSize === size 
-                            ? 'border border-primary text-primary bg-primary/5' 
-                            : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary relative group'
-                        }`}
-                      >
-                        {size}
-                      </button>
-                    );
-                  })}
+                  {selectableVariants.map((variant) => (
+                    <button
+                      key={variant.id}
+                      onClick={() => variant.availableForSale ? setSelectedVariantId(variant.id) : null}
+                      disabled={!variant.availableForSale}
+                      className={`h-12 px-4 min-w-[3rem] flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
+                        !variant.availableForSale
+                          ? 'opacity-30 cursor-not-allowed border border-dashed border-outline-variant/40'
+                          : selectedVariantId === variant.id
+                            ? 'border border-primary text-primary bg-primary/5'
+                            : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary'
+                      }`}
+                    >
+                      {variant.title}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
