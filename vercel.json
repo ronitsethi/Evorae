@@ -1,5 +1,14 @@
 {
+  "redirects": [
+    {
+      "source": "/cart/:path*",
+      "destination": "https://${env:VITE_SHOPIFY_STORE_DOMAIN}/cart/:path*",
+      "permanent": false
+    }
+  ],
   "buildCommand": "cd web && npm install && npm run build",
   "outputDirectory": "web/dist",
   "framework": "vite"
 }
+
+
