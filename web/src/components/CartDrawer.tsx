@@ -1,4 +1,5 @@
 import { useCart } from '../context/CartContext';
+import { sanitizeCheckoutUrl } from '../lib/shopify';
 
 const CartDrawer = () => {
   const { cart, isCartOpen, closeCart, itemCount, updateItem, removeItem, isLoading } = useCart();
@@ -106,7 +107,7 @@ const CartDrawer = () => {
               Shipping & taxes calculated at checkout.
             </p>
             <a 
-              href={cart.checkoutUrl}
+              href={sanitizeCheckoutUrl(cart.checkoutUrl)}
               className="w-full flex items-center justify-center gap-3 py-5 bg-on-surface text-surface text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-colors cursor-pointer"
             >
               Proceed to Checkout

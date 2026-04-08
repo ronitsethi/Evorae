@@ -222,6 +222,27 @@ export async function fetchProductById(id: string) {
   };
 }
 
+// ==== Checkout URL Sanitization ====
+// When a custom domain is set in Shopify Admin, Shopify rewrites the
+// checkoutUrl to use that domain (e.g. evorae.net/cart/c/...).
+// But if your DNS points that domain to Vercel (not Shopify), checkout 404s.
+// This function ensures the checkoutUrl always uses the raw myshopify.com domain.
+export function sanitizeCheckoutUrl(url: string): string {
+  const myshopifyDomain = import.meta.env.VITE_SHOPIFY_STORE_DOMAIN;
+  if (!myshopifyDomain || !url) return url;
+
+  try {
+    const parsed = new URL(url);
+    // If the checkout URL is NOT already pointing at myshopify.com, rewrite it
+    if (!parsed.hostname.endsWith('myshopify.com')) {
+      parsed.hostname = myshopifyDomain;
+    }
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
 // ==== Cart Types & Queries ====
 
 export interface CartLine {
