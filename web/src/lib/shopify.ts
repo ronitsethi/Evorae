@@ -93,6 +93,15 @@ export async function fetchProducts() {
                 }
               }
             }
+            variants(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  availableForSale
+                }
+              }
+            }
           }
         }
       }
@@ -112,6 +121,11 @@ export async function fetchProducts() {
       category: node.productType || 'Apparel',
       images: node.images.edges.map((img: any) => img.node.url),
       description: node.description,
+      variants: node.variants?.edges.map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        availableForSale: edge.node.availableForSale,
+      })) || [],
     };
   });
 }
@@ -140,6 +154,15 @@ export async function fetchCollectionByHandle(handle: string) {
                   }
                 }
               }
+              variants(first: 10) {
+                edges {
+                  node {
+                    id
+                    title
+                    availableForSale
+                  }
+                }
+              }
             }
           }
         }
@@ -163,6 +186,11 @@ export async function fetchCollectionByHandle(handle: string) {
       category: node.productType || 'Apparel',
       images: node.images.edges.map((img: any) => img.node.url),
       description: node.description,
+      variants: node.variants?.edges.map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        availableForSale: edge.node.availableForSale,
+      })) || [],
     };
   });
 }

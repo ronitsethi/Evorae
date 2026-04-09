@@ -43,6 +43,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <p className="font-label text-sm text-on-surface-variant font-medium">
           ₹{product.price.toLocaleString('en-IN')}
         </p>
+        
+        {/* Render sizes if variants exist */}
+        {product.variants && product.variants.filter(v => v.title !== 'Default Title').length > 0 && (
+          <div className="mt-2 text-xs font-label uppercase tracking-widest text-outline">
+            {product.variants.filter(v => v.title !== 'Default Title').map(v => v.title).join(' • ')}
+          </div>
+        )}
       </div>
     </Link>
   );
