@@ -96,9 +96,9 @@ const Collection = () => {
       {/* Product Grid */}
       <section className="px-6 md:px-12 py-24 md:py-32 max-w-screen-2xl mx-auto">
         {products.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-20">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-12 md:gap-x-10 md:gap-y-20">
             {products.map((product, index) => (
-              <div key={product.id} className={`${index % 2 === 1 ? 'md:mt-16' : ''}`}>
+              <div key={product.id} className={`${index % 2 === 1 ? 'mt-8 md:mt-16' : ''}`}>
                  <ProductCard product={product} />
               </div>
             ))}

@@ -25,7 +25,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         )}
         
         {/* Quick Add overlay */}
-        <div className="absolute bottom-6 left-6 right-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 flex justify-center">
+        <div className="hidden md:flex absolute bottom-6 left-6 right-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 justify-center">
           <span className="bg-background/95 backdrop-blur-sm text-on-surface text-[10px] uppercase tracking-[0.2em] font-bold py-3.5 px-8 flex items-center gap-2 shadow-xl border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-colors">
             Quick Add
             <span className="material-symbols-outlined text-[14px]">add</span>
@@ -34,19 +34,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
 
       <div className="flex flex-col items-center text-center px-2">
-        <span className="text-[9px] font-label font-bold text-outline uppercase tracking-[0.25em] mb-3">
+        <span className="text-[8px] md:text-[9px] font-label font-bold text-outline uppercase tracking-[0.25em] mb-2 md:mb-3">
           {product.category}
         </span>
-        <h3 className="font-headline text-2xl mb-2 text-on-surface group-hover:text-primary transition-colors duration-300">
+        <h3 className="font-headline text-[1.1rem] md:text-2xl leading-snug mb-1 md:mb-2 text-on-surface group-hover:text-primary transition-colors duration-300">
           {product.name}
         </h3>
-        <p className="font-label text-sm text-on-surface-variant font-medium">
+        <p className="font-label text-xs md:text-sm text-on-surface-variant font-medium">
           ₹{product.price.toLocaleString('en-IN')}
         </p>
         
         {/* Render sizes if variants exist */}
         {product.variants && product.variants.filter(v => v.title !== 'Default Title').length > 0 && (
-          <div className="mt-2 text-xs font-label uppercase tracking-widest text-outline">
+          <div className="mt-2 text-[9px] md:text-xs font-label uppercase tracking-widest text-outline">
             {product.variants.filter(v => v.title !== 'Default Title').map(v => v.title).join(' • ')}
           </div>
         )}

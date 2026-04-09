@@ -188,7 +188,7 @@ const ProductDetails = () => {
             <h2 className="text-3xl md:text-4xl font-headline text-on-surface tracking-tight mb-4 text-center">You May Also Like</h2>
             <div className="w-12 h-[1px] bg-primary"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
             {relatedProducts.map(relatedProduct => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />
             ))}
