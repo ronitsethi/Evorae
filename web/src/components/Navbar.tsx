@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
+const CustomLink = ({ to, children, isActive }: { to: string, children: React.ReactNode, isActive: boolean }) => (
+  <Link to={to} className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${isActive ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
+    {children}
+    <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+  </Link>
+);
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,17 +24,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
   const navBg = isScrolled ? 'glass-nav text-on-surface shadow-sm bg-surface/95 backdrop-blur' : 'bg-transparent text-on-surface';
-
-  const CustomLink = ({ to, children, isActive }: { to: string, children: React.ReactNode, isActive: boolean }) => (
-    <Link to={to} className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${isActive ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
-      {children}
-      <span className={`absolute -bottom-1.5 left-0 h-[1px] bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-    </Link>
-  );
 
   return (
     <>
