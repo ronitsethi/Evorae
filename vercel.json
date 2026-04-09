@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/cart/:path*",
-      "destination": "https://${env:VITE_SHOPIFY_STORE_DOMAIN}/cart/:path*",
+      "destination": "https://vvkiea-ix.myshopify.com/cart/:path*",
       "permanent": false
     }
   ],
