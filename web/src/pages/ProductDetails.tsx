@@ -23,9 +23,9 @@ const ProductDetails = () => {
 
         // Fetch related products
         const allProducts = await fetchProducts();
-        const related = allProducts.filter(p => p.id !== id && p.category === (data?.category || 'Apparel')).slice(0, 4);
+        const related = allProducts.filter((p: Product) => p.id !== id && p.category === (data?.category || 'Apparel')).slice(0, 4);
         if (related.length < 4) {
-          const others = allProducts.filter(p => p.id !== id && !related.some(r => r.id === p.id)).slice(0, 4 - related.length);
+          const others = allProducts.filter((p: Product) => p.id !== id && !related.some((r: Product) => r.id === p.id)).slice(0, 4 - related.length);
           related.push(...others);
         }
         setRelatedProducts(related);
