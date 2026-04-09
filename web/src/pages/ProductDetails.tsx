@@ -105,13 +105,6 @@ const ProductDetails = () => {
           </header>
 
           <div className="space-y-12">
-            <div 
-              className="text-lg font-body leading-[1.8] text-on-surface-variant font-light product-description"
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }}
-            />
-
-            <div className="h-[1px] w-full bg-outline-variant/30"></div>
-
             {/* Size / Variant Selection */}
             {hasVariants && (
               <div className="space-y-6">
@@ -141,7 +134,7 @@ const ProductDetails = () => {
             )}
 
             {/* Actions */}
-            <div className="flex flex-col gap-4 pt-4">
+            <div className="flex flex-col gap-4">
               <button 
                 onClick={handleAddToCart}
                 disabled={isAdding}
@@ -154,7 +147,15 @@ const ProductDetails = () => {
               </button>
             </div>
 
-            <div className="flex flex-col gap-6 pt-8 text-[11px] uppercase tracking-[0.15em] text-outline font-semibold">
+            <div className="h-[1px] w-full bg-outline-variant/30"></div>
+
+            {/* Product Description */}
+            <div 
+              className="text-lg font-body leading-[1.8] text-on-surface-variant font-light product-description"
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }}
+            />
+
+            <div className="flex flex-col gap-6 pt-4 text-[11px] uppercase tracking-[0.15em] text-outline font-semibold">
               <div className="flex items-center gap-4">
                 <span className="material-symbols-outlined text-[20px] font-light">eco</span>
                 Ethically Sourced & Handcrafted
