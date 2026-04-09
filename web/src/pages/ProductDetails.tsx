@@ -1,11 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
-import { fetchProductById, type Product } from '../lib/shopify';
+import { fetchProductById, fetchProducts, type Product } from '../lib/shopify';
 import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
+import ProductCard from '../components/ProductCard';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
   const { addItem, isLoading: isAdding } = useCart();
@@ -13,9 +15,20 @@ const ProductDetails = () => {
   useEffect(() => {
     async function loadProduct() {
       if (!id) return;
+      setLoading(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       try {
         const data = await fetchProductById(id);
         setProduct(data);
+
+        // Fetch related products
+        const allProducts = await fetchProducts();
+        const related = allProducts.filter(p => p.id !== id && p.category === (data?.category || 'Apparel')).slice(0, 4);
+        if (related.length < 4) {
+          const others = allProducts.filter(p => p.id !== id && !related.some(r => r.id === p.id)).slice(0, 4 - related.length);
+          related.push(...others);
+        }
+        setRelatedProducts(related);
       } catch (e) {
         console.error("Failed to load product", e);
       } finally {
@@ -169,37 +182,20 @@ const ProductDetails = () => {
         </div>
       </section>
 
-      {/* Storytelling Section */}
-      <section className="mt-32 md:mt-48 pt-24 hairline-t">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-          <div className="space-y-8 md:pr-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-headline text-on-surface tracking-tight">The Artisan's Canvas</h2>
-            <p className="text-on-surface-variant leading-[1.8] text-lg font-light">
-              {product.category === 'Apparel' 
-                ? "Our cotton is sourced from the rain-fed fields of Central India, spun by hand to preserve its natural strength and softness. The irregular weave is the signature of the handloom, a breathable skin that tells a story of comfort across generations."
-                : "Handcrafted using traditional casting and filigree techniques. Each piece carries the distinct touch of the artisan, turning raw elements into elegant daily companions."
-              }
-            </p>
-            <div className="grid grid-cols-2 gap-8 pt-8">
-                <div>
-                   <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-outline mb-2">Material</span>
-                   <span className="font-headline text-xl text-on-surface">{product.category === 'Apparel' ? 'Organic Cotton' : 'Sterling Silver'}</span>
-                </div>
-                <div>
-                   <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-outline mb-2">Origin</span>
-                   <span className="font-headline text-xl text-on-surface">{product.category === 'Apparel' ? 'Jaipur, India' : 'Rajasthan'}</span>
-                </div>
-            </div>
+      {/* Similar Products Section */}
+      {relatedProducts.length > 0 && (
+        <section className="mt-32 md:mt-48 pt-24 hairline-t">
+          <div className="flex flex-col items-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-headline text-on-surface tracking-tight mb-4 text-center">You May Also Like</h2>
+            <div className="w-12 h-[1px] bg-primary"></div>
           </div>
-          <div className="aspect-[4/3] md:aspect-square overflow-hidden bg-surface-container">
-             <img 
-               className="w-full h-full object-cover" 
-               src={product.category === 'Apparel' ? "/images/491A9109.JPG" : "/images/491A9112.JPG"}
-               alt="Material Context"
-             />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+            {relatedProducts.map(relatedProduct => (
+              <ProductCard key={relatedProduct.id} product={relatedProduct} />
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 };
