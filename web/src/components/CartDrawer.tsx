@@ -23,7 +23,7 @@ const CartDrawer = () => {
         {/* Header */}
         <header className="px-6 md:px-8 py-5 md:py-6 flex items-center justify-between border-b border-outline-variant/30">
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface">
-            Your Tote ({itemCount})
+            Your Cart ({itemCount})
           </h2>
           <button 
             onClick={closeCart}
@@ -38,7 +38,7 @@ const CartDrawer = () => {
           {!cart || cart.lines.edges.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-70">
               <span className="material-symbols-outlined text-4xl font-light">shopping_bag</span>
-              <p className="text-sm font-label uppercase tracking-widest text-outline">Your tote is empty</p>
+              <p className="text-sm font-label uppercase tracking-widest text-outline">Your cart is empty</p>
             </div>
           ) : (
             cart.lines.edges.map(({ node: line }) => (

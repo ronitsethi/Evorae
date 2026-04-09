@@ -50,7 +50,7 @@ const ProductDetails = () => {
   console.log('[Evorae] product.variants:', product.variants);
   console.log('[Evorae] selectableVariants:', selectableVariants);
 
-  const handleAddToTote = async () => {
+  const handleAddToCart = async () => {
     if (!product?.variants?.length) return;
 
     let variantId: string;
@@ -143,13 +143,13 @@ const ProductDetails = () => {
             {/* Actions */}
             <div className="flex flex-col gap-4 pt-4">
               <button 
-                onClick={handleAddToTote}
+                onClick={handleAddToCart}
                 disabled={isAdding}
                 className={`w-full py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-3 ${
                   isAdding ? 'bg-surface-container-low text-on-surface-variant cursor-wait' : 'bg-on-surface text-surface hover:bg-primary'
                 }`}
               >
-                <span>{isAdding ? 'Adding...' : 'Add to Tote'}</span>
+                <span>{isAdding ? 'Adding...' : 'Add to Cart'}</span>
                 <span className="material-symbols-outlined text-[16px] font-light">shopping_bag</span>
               </button>
             </div>

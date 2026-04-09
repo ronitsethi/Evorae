@@ -62,7 +62,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       openCart(); // Automatically slide out the drawer when an item is added
     } catch (error) {
       console.error('Error adding item to cart:', error);
-      alert('Failed to add item to tote. Please try again.');
+      alert('Failed to add item to cart. Please try again.');
     } finally {
       setIsLoading(false);
     }
