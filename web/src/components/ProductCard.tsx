@@ -7,7 +7,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Link to={`/product/${product.id}`} className="group block relative cursor-pointer">
+    <Link to={`/product/${product.id}`} className="group block relative cursor-pointer interactive touch-native">
       <div className="relative aspect-[3/4] overflow-hidden bg-surface-container-low mb-6 rounded-sm">
         {/* Primary Image */}
         <img

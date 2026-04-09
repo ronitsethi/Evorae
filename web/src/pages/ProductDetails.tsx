@@ -113,7 +113,6 @@ const ProductDetails = () => {
             </h1>
             <div className="flex items-baseline gap-4">
               <span className="text-2xl font-body font-normal text-on-surface">₹{product.price.toLocaleString('en-IN')}</span>
-              <span className="text-xs text-outline font-label uppercase tracking-widest">Inc. of all taxes</span>
             </div>
           </header>
 
@@ -123,7 +122,7 @@ const ProductDetails = () => {
               <div className="space-y-6">
                 <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface">
                   <span>Size</span>
-                  <button className="text-outline hover:text-primary transition-colors underline decoration-1 underline-offset-4">Size Guide</button>
+                  <button className="interactive touch-native text-outline hover:text-primary transition-colors underline decoration-1 underline-offset-4">Size Guide</button>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {selectableVariants.map((variant) => (
@@ -131,7 +130,7 @@ const ProductDetails = () => {
                       key={variant.id}
                       onClick={() => variant.availableForSale ? setSelectedVariantId(variant.id) : null}
                       disabled={!variant.availableForSale}
-                      className={`h-12 px-4 min-w-[3rem] flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
+                      className={`interactive touch-native h-[48px] px-5 min-w-[48px] flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
                         !variant.availableForSale
                           ? 'opacity-30 cursor-not-allowed border border-dashed border-outline-variant/40'
                           : selectedVariantId === variant.id
@@ -151,7 +150,7 @@ const ProductDetails = () => {
               <button 
                 onClick={handleAddToCart}
                 disabled={isAdding}
-                className={`w-full py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-3 ${
+                className={`interactive touch-native w-full min-h-[56px] py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-3 ${
                   isAdding ? 'bg-surface-container-low text-on-surface-variant cursor-wait' : 'bg-on-surface text-surface hover:bg-primary'
                 }`}
               >

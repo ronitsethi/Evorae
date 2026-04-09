@@ -16,18 +16,18 @@ const CartDrawer = () => {
 
       {/* Drawer */}
       <div 
-        className={`fixed top-0 right-0 h-full w-full max-w-[440px] bg-surface shadow-2xl z-[70] flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 h-full w-full max-w-[440px] bg-surface shadow-2xl z-[70] flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overscroll-contain pb-[var(--safe-bottom,0px)] ${
           isCartOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header */}
-        <header className="px-6 md:px-8 py-5 md:py-6 flex items-center justify-between border-b border-outline-variant/30">
+        <header className="px-6 md:px-8 py-5 pt-[calc(var(--safe-top,0px)+1.25rem)] md:py-6 flex items-center justify-between border-b border-outline-variant/30">
           <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface">
             Your Cart ({itemCount})
           </h2>
           <button 
             onClick={closeCart}
-            className="text-on-surface-variant hover:text-on-surface transition-colors p-2 -mr-2"
+            className="interactive touch-native min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors -mr-2"
           >
             <span className="material-symbols-outlined font-light text-[22px]">close</span>
           </button>
@@ -58,7 +58,7 @@ const CartDrawer = () => {
                     <button 
                       onClick={() => removeItem(line.id)}
                       disabled={isLoading}
-                      className="text-outline hover:text-error transition-colors mt-1 disabled:opacity-50"
+                      className="interactive touch-native min-w-[44px] min-h-[44px] flex items-center justify-center text-outline hover:text-error transition-colors disabled:opacity-50 -mt-2 -mr-2"
                     >
                       <span className="material-symbols-outlined text-[16px]">delete</span>
                     </button>
@@ -75,13 +75,13 @@ const CartDrawer = () => {
                       <button 
                         onClick={() => updateItem(line.id, Math.max(0, line.quantity - 1))}
                         disabled={isLoading || line.quantity <= 1}
-                        className="px-3 py-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
+                        className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
                       >-</button>
                       <span className="text-xs font-label px-2 min-w-[2rem] text-center">{line.quantity}</span>
                       <button 
                         onClick={() => updateItem(line.id, line.quantity + 1)}
                         disabled={isLoading}
-                        className="px-3 py-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
+                        className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
                       >+</button>
                     </div>
                     <span className="font-body text-sm">
@@ -108,7 +108,7 @@ const CartDrawer = () => {
             </p>
             <a 
               href={sanitizeCheckoutUrl(cart.checkoutUrl)}
-              className="w-full flex items-center justify-center gap-3 py-5 bg-on-surface text-surface text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-colors cursor-pointer"
+              className="interactive touch-native w-full flex items-center justify-center gap-3 min-h-[56px] py-3 bg-on-surface text-surface text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-colors cursor-pointer"
             >
               Proceed to Checkout
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>

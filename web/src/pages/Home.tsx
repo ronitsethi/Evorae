@@ -26,15 +26,12 @@ const Home = () => {
   return (
     <div className="home-page bg-surface pt-[100px] md:pt-[120px] overflow-hidden">
       
-      {/* 1. HERO SECTION - STATIC CSS GRID (SandByShirin Inspired) */}
+      {/* 1. HERO SECTION - RESPONSIVE STACK TO GRID */}
       <section 
-        className="relative w-full max-w-[1600px] mx-auto px-4 md:px-8 mb-16 lg:mb-24"
-        style={{ height: 'max(600px, calc(100vh - 140px))', maxHeight: '850px' }}
+        className="relative w-full max-w-[1600px] mx-auto px-4 md:px-8 mb-16 lg:mb-24 flex flex-col lg:grid lg:grid-cols-12 gap-[6px] md:gap-[12px]"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[6px] md:gap-[12px] w-full h-full">
-          
           {/* Left Anchor Large Image */}
-          <div className="lg:col-span-5 relative w-full h-full bg-surface-container overflow-hidden rounded-sm">
+          <div className="lg:col-span-5 relative w-full h-[65svh] lg:h-[max(600px,calc(100vh-140px))] lg:max-h-[850px] bg-surface-container overflow-hidden rounded-sm">
             <img 
               src="/home-assets/10.jpg" 
               alt="Summer Breath Campaign Lifestyle" 
@@ -44,7 +41,7 @@ const Home = () => {
           </div>
 
           {/* Right Supporting Tile Grid */}
-          <div className="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 gap-[6px] md:gap-[12px] relative w-full h-full">
+          <div className="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 gap-[6px] md:gap-[12px] relative w-full h-[75svh] lg:h-[max(600px,calc(100vh-140px))] lg:max-h-[850px]">
             <div className="relative w-full h-full bg-surface-container overflow-hidden rounded-sm">
               <img src="/home-assets/8.jpg" alt="Editorial Detail" className="absolute inset-0 w-full h-full object-cover object-center" loading="eager" />
             </div>
@@ -65,20 +62,18 @@ const Home = () => {
             </div>
 
             {/* Central Title Card (Strictly Bound / Overrides Grid) */}
-            <div className="absolute top-1/2 left-1/2 lg:left-0 transform -translate-x-1/2 lg:-translate-x-12 -translate-y-1/2 z-10 w-[85%] sm:w-[320px] bg-[#fbf9f6] p-8 md:p-10 text-center shadow-lg border border-outline-variant/20 flex flex-col items-center justify-center pointer-events-auto">
+            <div className="absolute top-1/2 left-1/2 lg:left-0 transform -translate-x-1/2 lg:-translate-x-12 -translate-y-1/2 z-10 w-[90%] sm:w-[320px] bg-[#fbf9f6]/95 backdrop-blur-sm p-8 md:p-10 text-center shadow-lg border border-outline-variant/20 flex flex-col items-center justify-center pointer-events-auto rounded-sm">
               <h1 className="font-headline text-5xl md:text-6xl text-on-surface leading-none tracking-tight mb-2">
                 Summer Breath
               </h1>
               <p className="font-label text-[10px] md:text-xs uppercase tracking-[0.2em] text-on-surface-variant font-medium mb-6 md:mb-8">
                 The New Collection
               </p>
-              <Link to="/summer-breath" className="inline-block relative group text-on-surface hover:text-primary transition-colors duration-300">
+              <Link to="/summer-breath" className="interactive touch-native min-w-[44px] inline-flex items-center justify-center relative group text-on-surface hover:text-primary transition-colors duration-300">
                   <span className="font-label text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold border-b border-current pb-1">Enter New In</span>
               </Link>
             </div>
           </div>
-
-        </div>
       </section>
 
       {/* 2. POSTCARD SECTION - EDITORIAL STORYTELLING */}
@@ -124,8 +119,8 @@ const Home = () => {
                 Summer Breath is crafted in breathable cotton and brought to life through intricate handblock printing. Designed for effortless movement, from workdays to slow outings, the collection is perfectly complemented by handcrafted jewellery made with the finest materials.
               </p>
               
-              <div className="flex items-center gap-5">
-                <Link to="/summer-breath" className="group flex items-center gap-3 text-[#2c2b29] font-label text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 font-semibold border-b border-[#2c2b29] pb-1 hover:opacity-70">
+              <div className="flex items-center gap-5 mt-4">
+                <Link to="/summer-breath" className="interactive touch-native min-h-[44px] group flex justify-center items-center gap-3 text-[#2c2b29] font-label text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 font-semibold border-b border-[#2c2b29] pb-1 hover:opacity-70">
                   <span>Explore More</span>
                   <span className="material-symbols-outlined text-[14px] font-light transition-transform duration-300 group-hover:translate-x-1">arrow_right_alt</span>
                 </Link>
@@ -211,7 +206,7 @@ const Home = () => {
               <p className="font-label text-sm lg:text-[15px] font-light text-on-surface-variant leading-[1.8] mb-10 max-w-[480px]">
                 Each conscious creation blends traditional artistry with a modern aesthetic that feels effortless, elegant, and gracefully rooted in purpose.
               </p>
-              <Link to="/about" className="self-start text-on-surface hover:text-primary border border-on-surface hover:border-primary px-8 lg:px-10 py-3 lg:py-4 font-label text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 font-semibold bg-surface/40 backdrop-blur-sm">
+              <Link to="/about" className="interactive touch-native min-h-[44px] flex items-center justify-center self-start text-on-surface hover:text-primary border border-on-surface hover:border-primary px-8 lg:px-10 py-3 lg:py-4 font-label text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 font-semibold bg-surface/40 backdrop-blur-sm">
                  Our Story
               </Link>
            </div>

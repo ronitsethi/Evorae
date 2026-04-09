@@ -32,13 +32,13 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${navBg} ${isScrolled ? 'py-3' : 'py-5 md:py-8'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${navBg} ${isScrolled ? 'py-3' : 'py-5 md:py-8'} pt-[calc(var(--safe-top,0px)+0.5rem)] lg:pt-[calc(var(--safe-top,0px)+1.5rem)]`}>
         <div className="grid grid-cols-3 items-center w-full px-6 md:px-12 max-w-screen-2xl mx-auto">
           
           {/* Left: Mobile Trigger & Desktop Links */}
           <div className="flex items-center justify-start">
             <button 
-              className="md:hidden text-current hover:opacity-80 transition-all z-50 mr-4"
+              className="md:hidden text-current hover:opacity-80 z-50 mr-2 interactive touch-native min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="material-symbols-outlined text-[28px] font-light">
@@ -65,19 +65,19 @@ const Navbar = () => {
                 <CustomLink to="/summer-breath" isActive={location.pathname === '/summer-breath'}>Summer Breath</CustomLink>
                 <CustomLink to="/about" isActive={location.pathname === '/about'}>Story</CustomLink>
             </div>
-            <button className="hover:opacity-70 transition-opacity text-current flex items-center">
+            <button className="interactive touch-native min-w-[44px] min-h-[44px] flex justify-center items-center text-current">
               <span className="material-symbols-outlined font-light text-[24px]">search</span>
             </button>
-            <button className="hidden md:flex hover:opacity-70 transition-opacity text-current items-center">
+            <button className="hidden md:flex interactive touch-native min-w-[44px] min-h-[44px] justify-center items-center text-current">
               <span className="material-symbols-outlined font-light text-[24px]">person</span>
             </button>
             <button 
               onClick={openCart} 
-              className="hover:opacity-70 transition-opacity text-current relative flex items-center group"
+              className="interactive touch-native min-w-[44px] min-h-[44px] flex justify-center items-center text-current relative -mr-2 lg:mr-0 group"
             >
               <span className="material-symbols-outlined font-light text-[24px]">shopping_bag</span>
               {itemCount > 0 && (
-                <span className="absolute -top-1.5 -right-2 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span className="absolute top-1 right-2 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                   {itemCount}
                 </span>
               )}
@@ -88,21 +88,21 @@ const Navbar = () => {
 
       {/* Mobile Nav Overlay */}
       <div 
-        className={`fixed inset-0 z-40 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-40 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overscroll-contain ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
         <div className="absolute inset-0 bg-surface/95 backdrop-blur-xl"></div>
-        <div className="relative h-full flex flex-col justify-center px-12">
+        <div className="relative h-full flex flex-col justify-center px-12 pb-[var(--safe-bottom,0px)]">
           <div className="flex flex-col gap-6 md:gap-8">
-            <Link to="/" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">New In</Link>
-            <Link to="/collection" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Apparel</Link>
-            <Link to="/collection?category=Jewellery" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Jewellery</Link>
-            <Link to="/summer-breath" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Summer Breath</Link>
-            <Link to="/about" className="text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface hover:text-primary transition-all hover:translate-x-3 duration-500 ease-out">Story</Link>
+            <Link to="/" className="interactive text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface transition-transform origin-left inline-block w-fit">New In</Link>
+            <Link to="/collection" className="interactive text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface transition-transform origin-left inline-block w-fit">Apparel</Link>
+            <Link to="/collection?category=Jewellery" className="interactive text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface transition-transform origin-left inline-block w-fit">Jewellery</Link>
+            <Link to="/summer-breath" className="interactive text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface transition-transform origin-left inline-block w-fit">Summer Breath</Link>
+            <Link to="/about" className="interactive text-3xl sm:text-4xl md:text-5xl font-headline text-on-surface transition-transform origin-left inline-block w-fit">Story</Link>
           </div>
           
-          <div className="absolute bottom-12 left-12 flex gap-6 text-on-surface-variant">
-            <span className="uppercase tracking-widest text-xs font-semibold hover:text-primary cursor-pointer transition-colors">Instagram</span>
-            <span className="uppercase tracking-widest text-xs font-semibold hover:text-primary cursor-pointer transition-colors">Pinterest</span>
+          <div className="absolute bottom-[calc(3rem+var(--safe-bottom,0px))] left-12 flex gap-6 text-on-surface-variant">
+            <span className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center">Instagram</span>
+            <span className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center">Pinterest</span>
           </div>
         </div>
       </div>
