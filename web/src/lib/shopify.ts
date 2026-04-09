@@ -11,6 +11,7 @@ export interface Product {
   category: string;
   images: string[];
   description: string;
+  descriptionHtml: string;
   variants?: ProductVariant[];
 }
 
@@ -79,6 +80,7 @@ export async function fetchProducts() {
             id
             title
             description
+            descriptionHtml
             productType
             priceRange {
               minVariantPrice {
@@ -121,6 +123,7 @@ export async function fetchProducts() {
       category: node.productType || 'Apparel',
       images: node.images.edges.map((img: any) => img.node.url),
       description: node.description,
+      descriptionHtml: node.descriptionHtml || node.description,
       variants: node.variants?.edges.map((edge: any) => ({
         id: edge.node.id,
         title: edge.node.title,
@@ -140,6 +143,7 @@ export async function fetchCollectionByHandle(handle: string) {
               id
               title
               description
+              descriptionHtml
               productType
               priceRange {
                 minVariantPrice {
@@ -186,6 +190,7 @@ export async function fetchCollectionByHandle(handle: string) {
       category: node.productType || 'Apparel',
       images: node.images.edges.map((img: any) => img.node.url),
       description: node.description,
+      descriptionHtml: node.descriptionHtml || node.description,
       variants: node.variants?.edges.map((edge: any) => ({
         id: edge.node.id,
         title: edge.node.title,
@@ -203,6 +208,7 @@ export async function fetchProductById(id: string) {
         id
         title
         description
+        descriptionHtml
         productType
         priceRange {
           minVariantPrice {
@@ -242,6 +248,7 @@ export async function fetchProductById(id: string) {
     category: node.productType || 'Apparel',
     images: node.images.edges.map((img: any) => img.node.url),
     description: node.description,
+    descriptionHtml: node.descriptionHtml || node.description,
     variants: node.variants?.edges.map((edge: any) => ({
       id: edge.node.id,
       title: edge.node.title,

@@ -105,9 +105,10 @@ const ProductDetails = () => {
           </header>
 
           <div className="space-y-12">
-            <p className="text-lg font-body leading-[1.8] text-on-surface-variant font-light">
-              {product.description}
-            </p>
+            <div 
+              className="text-lg font-body leading-[1.8] text-on-surface-variant font-light product-description"
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }}
+            />
 
             <div className="h-[1px] w-full bg-outline-variant/30"></div>
 

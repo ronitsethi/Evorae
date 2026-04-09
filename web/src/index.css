@@ -25,3 +25,33 @@
     border-bottom: 1px solid rgba(138, 114, 108, 0.15);
   }
 }
+
+/* Product description HTML styling */
+.product-description p {
+  margin-bottom: 1em;
+}
+
+.product-description p:last-child {
+  margin-bottom: 0;
+}
+
+.product-description strong {
+  font-weight: 600;
+  color: var(--color-on-surface, #2C1A14);
+}
+
+.product-description br {
+  display: block;
+  content: "";
+  margin-top: 0.25em;
+}
+
+.product-description ul,
+.product-description ol {
+  padding-left: 1.25em;
+  margin-bottom: 1em;
+}
+
+.product-description li {
+  margin-bottom: 0.25em;
+}
