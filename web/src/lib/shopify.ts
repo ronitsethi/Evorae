@@ -73,9 +73,10 @@ export async function shopifyFetch<T>({
 }
 
 export async function fetchProducts() {
+  // 250 is Shopify Storefront API's maximum per request
   const query = `
     {
-      products(first: 20) {
+      products(first: 250) {
         edges {
           node {
             id
@@ -107,6 +108,10 @@ export async function fetchProducts() {
             }
           }
         }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
       }
     }
   `;
@@ -135,10 +140,11 @@ export async function fetchProducts() {
 }
 
 export async function fetchCollectionByHandle(handle: string) {
+  // 250 is Shopify Storefront API's maximum per request
   const query = `
     query getCollection($handle: String!) {
       collection(handle: $handle) {
-        products(first: 50) {
+        products(first: 250) {
           edges {
             node {
               id
@@ -169,6 +175,10 @@ export async function fetchCollectionByHandle(handle: string) {
                 }
               }
             }
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
           }
         }
       }
