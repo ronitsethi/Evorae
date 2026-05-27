@@ -49,7 +49,7 @@ const Navbar = () => {
             </button>
             <div className="hidden md:flex gap-8 lg:gap-10 items-center">
               <CustomLink to="/" isActive={location.pathname === '/'}>New In</CustomLink>
-              <CustomLink to="/collection" isActive={location.pathname === '/collection' && !location.search}>Apparel</CustomLink>
+              <CustomLink to="/collection" isActive={location.pathname === '/collection' && !location.search.includes('Jewellery')}>Apparel</CustomLink>
               <CustomLink to="/collection?category=Jewellery" isActive={location.search.includes('Jewellery')}>Jewellery</CustomLink>
             </div>
           </div>
