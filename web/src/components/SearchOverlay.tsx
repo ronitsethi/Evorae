@@ -75,7 +75,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-surface/97 backdrop-blur-2xl"
+        className="absolute inset-0 bg-surface/95 backdrop-blur-2xl"
         onClick={onClose}
       />
 

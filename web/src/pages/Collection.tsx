@@ -261,7 +261,7 @@ const Collection = () => {
 
       {/* Filter Drawer Overlay */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-[55] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isFilterOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >

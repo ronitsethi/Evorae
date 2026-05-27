@@ -10,6 +10,7 @@ const ProductDetails = () => {
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
+  const [sizeError, setSizeError] = useState(false);
   const { addItem, isLoading: isAdding } = useCart();
 
   useEffect(() => {
@@ -60,8 +61,6 @@ const ProductDetails = () => {
   // Filter out the "Default Title" placeholder Shopify adds for products with no real variants
   const selectableVariants = (product.variants || []).filter(v => v.title !== 'Default Title');
   const hasVariants = selectableVariants.length > 0;
-  console.log('[Evorae] product.variants:', product.variants);
-  console.log('[Evorae] selectableVariants:', selectableVariants);
 
   const handleAddToCart = async () => {
     if (!product?.variants?.length) return;
@@ -70,7 +69,9 @@ const ProductDetails = () => {
 
     if (hasVariants) {
       if (!selectedVariantId) {
-        alert('Please select a size first.');
+        setSizeError(true);
+        // Scroll the size selector into view
+        document.getElementById('size-selector')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       variantId = selectedVariantId;
@@ -79,6 +80,7 @@ const ProductDetails = () => {
       variantId = product.variants[0].id;
     }
 
+    setSizeError(false);
     await addItem(variantId, 1);
   };
 
@@ -119,7 +121,7 @@ const ProductDetails = () => {
           <div className="space-y-12">
             {/* Size / Variant Selection */}
             {hasVariants && (
-              <div className="space-y-6">
+              <div className="space-y-6" id="size-selector">
                 <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface">
                   <span>Size</span>
                   <button className="interactive touch-native text-outline hover:text-primary transition-colors underline decoration-1 underline-offset-4">Size Guide</button>
@@ -128,20 +130,27 @@ const ProductDetails = () => {
                   {selectableVariants.map((variant) => (
                     <button
                       key={variant.id}
-                      onClick={() => variant.availableForSale ? setSelectedVariantId(variant.id) : null}
+                      onClick={() => { variant.availableForSale && setSelectedVariantId(variant.id); setSizeError(false); }}
                       disabled={!variant.availableForSale}
                       className={`interactive touch-native h-[48px] px-5 min-w-[48px] flex items-center justify-center font-label text-xs uppercase tracking-widest transition-all ${
                         !variant.availableForSale
                           ? 'opacity-30 cursor-not-allowed border border-dashed border-outline-variant/40'
                           : selectedVariantId === variant.id
                             ? 'border border-primary text-primary bg-primary/5'
-                            : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary'
+                            : sizeError
+                              ? 'border border-error text-on-surface-variant hover:border-primary hover:text-primary'
+                              : 'border border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary'
                       }`}
                     >
                       {variant.title}
                     </button>
                   ))}
                 </div>
+                {sizeError && (
+                  <p className="text-[11px] text-error font-label uppercase tracking-[0.1em]">
+                    Please select a size to continue.
+                  </p>
+                )}
               </div>
             )}
 

@@ -74,9 +74,6 @@ const Navbar = () => {
             >
               <span className="material-symbols-outlined font-light text-[24px]">search</span>
             </button>
-            <button className="hidden md:flex interactive touch-native min-w-[44px] min-h-[44px] justify-center items-center text-current">
-              <span className="material-symbols-outlined font-light text-[24px]">person</span>
-            </button>
             <button 
               onClick={openCart} 
               className="interactive touch-native min-w-[44px] min-h-[44px] flex justify-center items-center text-current relative -mr-2 lg:mr-0 group"
@@ -107,8 +104,8 @@ const Navbar = () => {
           </div>
           
           <div className="absolute bottom-[calc(3rem+var(--safe-bottom,0px))] left-12 flex gap-6 text-on-surface-variant">
-            <span className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center">Instagram</span>
-            <span className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center">Pinterest</span>
+            <a href="https://www.instagram.com/evorae.official" target="_blank" rel="noopener noreferrer" className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center hover:text-primary transition-colors">Instagram</a>
+            <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" className="interactive touch-native uppercase tracking-widest text-xs font-semibold flex items-center hover:text-primary transition-colors">Pinterest</a>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const Footer = () => {
             Evorae
           </Link>
           <p className="font-body text-base lg:text-lg text-on-surface-variant leading-relaxed max-w-md w-full font-light">
-            Curating a conversation between the artisan’s past and the modern soul's future. Based in Jaipur, crafted for the conscious mind.
+            Curating a conversation between the artisan's past and the modern soul's future. Based in Jaipur, crafted for the conscious mind.
           </p>
         </div>
         
@@ -29,9 +29,23 @@ const Footer = () => {
         <div className="md:col-span-2 text-left md:text-left">
           <h5 className="font-label text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-outline">Concierge</h5>
           <ul className="space-y-6">
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Journal</a></li>
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Shipping</a></li>
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Returns</a></li>
+            <li><Link to="/about" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Journal</Link></li>
+            <li>
+              <a
+                href="mailto:hello@evorae.com"
+                className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors"
+              >
+                Shipping
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:hello@evorae.com"
+                className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors"
+              >
+                Returns
+              </a>
+            </li>
             <li><Link to="/about" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Sustainability</Link></li>
           </ul>
         </div>
@@ -39,9 +53,36 @@ const Footer = () => {
         <div className="md:col-span-2 text-left md:text-left">
           <h5 className="font-label text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-outline">Social</h5>
           <ul className="space-y-6">
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Instagram</a></li>
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Pinterest</a></li>
-            <li><a href="#" className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors">Spotify</a></li>
+            <li>
+              <a
+                href="https://www.instagram.com/evorae.official"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.pinterest.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors"
+              >
+                Pinterest
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://open.spotify.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-label text-sm font-medium text-on-surface hover:text-primary transition-colors"
+              >
+                Spotify
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -49,8 +90,8 @@ const Footer = () => {
       <div className="mt-32 px-6 md:px-12 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pt-8 hairline-t">
         <p className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">© {new Date().getFullYear()} Evorae.</p>
         <div className="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] text-outline">
-          <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-          <a href="#" className="hover:text-primary transition-colors">Terms</a>
+          <a href="mailto:hello@evorae.com" className="hover:text-primary transition-colors">Privacy</a>
+          <a href="mailto:hello@evorae.com" className="hover:text-primary transition-colors">Terms</a>
         </div>
       </div>
     </footer>

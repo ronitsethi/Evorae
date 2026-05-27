@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { type Product } from '../lib/shopify';
 import { useCart } from '../context/CartContext';
@@ -7,12 +8,16 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const { addItem, isLoading } = useCart();
+  const { addItem } = useCart();
   const navigate = useNavigate();
+  // Per-card loading state — not global, so other cards remain interactive
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleQuickAdd = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (isAdding) return;
 
     // Filter out Shopify's placeholder "Default Title" variant
     const selectableVariants = (product.variants || []).filter(v => v.title !== 'Default Title');
@@ -31,7 +36,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
       return;
     }
 
-    await addItem(defaultVariant.id, 1);
+    setIsAdding(true);
+    try {
+      await addItem(defaultVariant.id, 1);
+    } finally {
+      setIsAdding(false);
+    }
   };
 
   return (
@@ -56,12 +66,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="hidden md:flex absolute bottom-6 left-6 right-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 justify-center">
           <button
             onClick={handleQuickAdd}
-            disabled={isLoading}
+            disabled={isAdding}
             aria-label={`Quick add ${product.name} to cart`}
             className="bg-background/95 backdrop-blur-sm text-on-surface text-[10px] uppercase tracking-[0.2em] font-bold py-3.5 px-8 flex items-center gap-2 shadow-xl border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-colors disabled:opacity-50 disabled:cursor-wait"
           >
-            {isLoading ? 'Adding...' : 'Quick Add'}
-            <span className="material-symbols-outlined text-[14px]">add</span>
+            {isAdding ? 'Adding…' : 'Quick Add'}
+            <span className="material-symbols-outlined text-[14px]">{isAdding ? 'hourglass_empty' : 'add'}</span>
           </button>
         </div>
       </div>

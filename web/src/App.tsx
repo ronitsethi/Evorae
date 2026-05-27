@@ -7,6 +7,7 @@ import Collection from './pages/Collection';
 import ProductDetails from './pages/ProductDetails';
 import About from './pages/About';
 import Campaign from './pages/Campaign';
+import NotFound from './pages/NotFound';
 import { CartProvider } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
 import './App.css';
@@ -36,6 +37,7 @@ function App() {
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/about" element={<About />} />
               <Route path="/summer-breath" element={<Campaign />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

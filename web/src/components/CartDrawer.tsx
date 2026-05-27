@@ -41,56 +41,75 @@ const CartDrawer = () => {
               <p className="text-sm font-label uppercase tracking-widest text-outline">Your cart is empty</p>
             </div>
           ) : (
-            cart.lines.edges.map(({ node: line }) => (
-              <div key={line.id} className="flex gap-6 group">
-                <div className="w-24 aspect-[3/4] bg-surface-container-low flex-shrink-0 overflow-hidden relative">
-                  <img 
-                    src={line.merchandise.image.url} 
-                    alt={line.merchandise.product.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-col flex-1 py-1">
-                  <div className="flex justify-between items-start gap-4 mb-1">
-                    <h3 className="font-headline text-lg text-on-surface leading-tight">
-                      {line.merchandise.product.title}
-                    </h3>
-                    <button 
-                      onClick={() => removeItem(line.id)}
-                      disabled={isLoading}
-                      className="interactive touch-native min-w-[44px] min-h-[44px] flex items-center justify-center text-outline hover:text-error transition-colors disabled:opacity-50 -mt-2 -mr-2"
-                    >
-                      <span className="material-symbols-outlined text-[16px]">delete</span>
-                    </button>
+            cart.lines.edges.map(({ node: line }) => {
+              // Safely compute line total (unit price × quantity)
+              const unitPrice = parseFloat(line.merchandise.price.amount);
+              const lineTotal = unitPrice * line.quantity;
+
+              return (
+                <div key={line.id} className="flex gap-6 group">
+                  <div className="w-24 aspect-[3/4] bg-surface-container-low flex-shrink-0 overflow-hidden relative">
+                    {line.merchandise.image?.url ? (
+                      <img 
+                        src={line.merchandise.image.url} 
+                        alt={line.merchandise.product.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-surface-container">
+                        <span className="material-symbols-outlined text-outline text-2xl font-light">image</span>
+                      </div>
+                    )}
                   </div>
-                  
-                  {line.merchandise.title !== 'Default Title' && (
-                    <p className="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-4">
-                      Size: {line.merchandise.title}
-                    </p>
-                  )}
-                  
-                  <div className="mt-auto flex justify-between items-center">
-                    <div className="flex items-center border border-outline-variant/40">
+                  <div className="flex flex-col flex-1 py-1">
+                    <div className="flex justify-between items-start gap-4 mb-1">
+                      <h3 className="font-headline text-lg text-on-surface leading-tight">
+                        {line.merchandise.product.title}
+                      </h3>
                       <button 
-                        onClick={() => updateItem(line.id, Math.max(0, line.quantity - 1))}
-                        disabled={isLoading || line.quantity <= 1}
-                        className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
-                      >-</button>
-                      <span className="text-xs font-label px-2 min-w-[2rem] text-center">{line.quantity}</span>
-                      <button 
-                        onClick={() => updateItem(line.id, line.quantity + 1)}
+                        onClick={() => removeItem(line.id)}
                         disabled={isLoading}
-                        className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
-                      >+</button>
+                        className="interactive touch-native min-w-[44px] min-h-[44px] flex items-center justify-center text-outline hover:text-error transition-colors disabled:opacity-50 -mt-2 -mr-2"
+                      >
+                        <span className="material-symbols-outlined text-[16px]">delete</span>
+                      </button>
                     </div>
-                    <span className="font-body text-sm">
-                      ₹{parseFloat(line.merchandise.price.amount).toLocaleString('en-IN')}
-                    </span>
+                    
+                    {line.merchandise.title !== 'Default Title' && (
+                      <p className="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-4">
+                        Size: {line.merchandise.title}
+                      </p>
+                    )}
+                    
+                    <div className="mt-auto flex justify-between items-center">
+                      <div className="flex items-center border border-outline-variant/40">
+                        <button 
+                          onClick={() => {
+                            if (line.quantity <= 1) {
+                              // Remove the item entirely rather than setting quantity to 0
+                              removeItem(line.id);
+                            } else {
+                              updateItem(line.id, line.quantity - 1);
+                            }
+                          }}
+                          disabled={isLoading}
+                          className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
+                        >-</button>
+                        <span className="text-xs font-label px-2 min-w-[2rem] text-center">{line.quantity}</span>
+                        <button 
+                          onClick={() => updateItem(line.id, line.quantity + 1)}
+                          disabled={isLoading}
+                          className="interactive touch-native min-w-[40px] min-h-[40px] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50"
+                        >+</button>
+                      </div>
+                      <span className="font-body text-sm">
+                        ₹{lineTotal.toLocaleString('en-IN')}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
@@ -104,7 +123,7 @@ const CartDrawer = () => {
               </span>
             </div>
             <p className="text-xs font-label text-on-surface-variant tracking-wide mb-5 md:mb-6">
-              Shipping & taxes calculated at checkout.
+              Shipping &amp; taxes calculated at checkout.
             </p>
             <a 
               href={sanitizeCheckoutUrl(cart.checkoutUrl)}

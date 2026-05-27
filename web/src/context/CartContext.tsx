@@ -62,7 +62,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       openCart(); // Automatically slide out the drawer when an item is added
     } catch (error) {
       console.error('Error adding item to cart:', error);
-      alert('Failed to add item to cart. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -76,7 +75,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       setCart(updatedCart);
     } catch (error) {
       console.error('Error updating cart item:', error);
-      alert('Failed to update item quantity.');
     } finally {
       setIsLoading(false);
     }
@@ -90,7 +88,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       setCart(updatedCart);
     } catch (error) {
       console.error('Error removing cart item:', error);
-      alert('Failed to remove item.');
     } finally {
       setIsLoading(false);
     }

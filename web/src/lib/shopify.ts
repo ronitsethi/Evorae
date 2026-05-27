@@ -31,7 +31,7 @@ export async function shopifyFetch<T>({
   const isReadyToLink = domain && storefrontAccessToken;
   
   const endpoint = isReadyToLink 
-    ? `https://${domain}/api/2024-01/graphql.json`
+    ? `https://${domain}/api/2025-01/graphql.json`
     : 'https://mock.shop/api';
 
   const headers: HeadersInit = {
@@ -363,7 +363,7 @@ export interface CartLine {
     id: string;
     title: string;
     product: { title: string };
-    image: { url: string };
+    image?: { url: string } | null;
     price: { amount: string };
   };
 }
