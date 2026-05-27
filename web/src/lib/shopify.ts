@@ -258,6 +258,71 @@ export async function fetchProductById(id: string) {
   };
 }
 
+export async function searchProducts(query: string): Promise<Product[]> {
+  if (!query.trim()) return [];
+
+  const gqlQuery = `
+    query searchProducts($query: String!) {
+      search(query: $query, types: PRODUCT, first: 12) {
+        edges {
+          node {
+            ... on Product {
+              id
+              title
+              description
+              descriptionHtml
+              productType
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    url
+                  }
+                }
+              }
+              variants(first: 10) {
+                edges {
+                  node {
+                    id
+                    title
+                    availableForSale
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await shopifyFetch<{ data: any }>({ query: gqlQuery, variables: { query } });
+    const edges = response.body.data?.search?.edges ?? [];
+    return edges.map(({ node }: any) => ({
+      id: node.id.split('/').pop(),
+      name: node.title,
+      price: parseFloat(node.priceRange.minVariantPrice.amount),
+      category: node.productType || 'Apparel',
+      images: node.images.edges.map((img: any) => img.node.url),
+      description: node.description,
+      descriptionHtml: node.descriptionHtml || node.description,
+      variants: node.variants?.edges.map((edge: any) => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        availableForSale: edge.node.availableForSale,
+      })) || [],
+    }));
+  } catch {
+    return [];
+  }
+}
+
 // ==== Checkout URL Sanitization ====
 // When a custom domain is set in Shopify Admin, Shopify rewrites the
 // checkoutUrl to use that domain (e.g. evorae.net/cart/c/...).

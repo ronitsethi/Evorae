@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import SearchOverlay from './SearchOverlay';
 
 const CustomLink = ({ to, children, isActive }: { to: string, children: React.ReactNode, isActive: boolean }) => (
   <Link to={to} className={`uppercase tracking-[0.15em] text-[11px] font-semibold transition-all duration-300 ease-in-out relative group ${isActive ? 'text-primary' : 'text-current opacity-75 hover:opacity-100'}`}>
@@ -12,6 +13,7 @@ const CustomLink = ({ to, children, isActive }: { to: string, children: React.Re
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
   const { itemCount, openCart } = useCart();
 
@@ -65,7 +67,11 @@ const Navbar = () => {
                 <CustomLink to="/summer-breath" isActive={location.pathname === '/summer-breath'}>Summer Breath</CustomLink>
                 <CustomLink to="/about" isActive={location.pathname === '/about'}>Story</CustomLink>
             </div>
-            <button className="interactive touch-native min-w-[44px] min-h-[44px] flex justify-center items-center text-current">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="interactive touch-native min-w-[44px] min-h-[44px] flex justify-center items-center text-current"
+              aria-label="Open search"
+            >
               <span className="material-symbols-outlined font-light text-[24px]">search</span>
             </button>
             <button className="hidden md:flex interactive touch-native min-w-[44px] min-h-[44px] justify-center items-center text-current">
@@ -106,6 +112,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Search Overlay */}
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 };
